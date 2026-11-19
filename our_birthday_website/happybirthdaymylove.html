@@ -1,0 +1,1788 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#f8cfe0" />
+    <title>Happy Birthday, My Love 💗</title>
+    <style>
+      :root {
+        --rose: #d94b88;
+        --ink: #4d2639;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        font-family: Georgia, serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 15% 10%, #fff4fa, transparent 35%),
+          linear-gradient(135deg, #f9d7e7, #f3b8d2 55%, #fbe8f1);
+        min-height: 100vh;
+      }
+      button {
+        font: inherit;
+        cursor: pointer;
+        border: 0;
+      }
+      #floaties {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 0;
+      }
+      .floaty {
+        position: absolute;
+        bottom: -50px;
+        opacity: 0.7;
+        animation: rise linear infinite;
+      }
+      @keyframes rise {
+        to {
+          transform: translateY(-115vh) rotate(35deg);
+          opacity: 0;
+        }
+      }
+      main {
+        position: relative;
+        z-index: 1;
+        width: min(940px, 92%);
+        margin: auto;
+        padding: 26px 0 60px;
+      }
+      .panel {
+        background: #ffffffc7;
+        border: 1px solid #ffffffd0;
+        box-shadow: 0 18px 55px #9b42632a;
+        border-radius: 26px;
+        padding: clamp(22px, 5vw, 44px);
+        margin: 18px 0;
+        text-align: center;
+        backdrop-filter: blur(12px);
+      }
+      .hero {
+        min-height: 72vh;
+        display: grid;
+        place-items: center;
+        margin: 0;
+      }
+      .eyebrow {
+        font: 700 10px Arial;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: #a64d75;
+      }
+      h1,
+      h2 {
+        font-weight: normal;
+        margin: 12px 0;
+        color: #53253d;
+      }
+      h1 {
+        font-size: clamp(42px, 8vw, 76px);
+        font-style: italic;
+      }
+      h2 {
+        font-size: clamp(29px, 5vw, 42px);
+        font-style: italic;
+      }
+      p {
+        line-height: 1.7;
+        font-size: 16px;
+      }
+      .lead {
+        max-width: 580px;
+        margin: 10px auto 24px;
+      }
+      .countdown-card {
+        max-width: 540px;
+        margin: 24px auto;
+        padding: 22px;
+        border: 1px solid #f2cbdc;
+        border-radius: 22px;
+        background: #fff8fc;
+        box-shadow: 0 8px 22px #a64d7514;
+      }
+      .countdown-title {
+        margin: 0 0 18px;
+        color: var(--rose);
+        font-size: clamp(20px, 4vw, 28px);
+        font-style: normal;
+      }
+      .countdown-units {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+        max-width: 440px;
+        margin: 0 auto 15px;
+      }
+      .countdown-unit {
+        padding: 12px 6px;
+        border: 1px solid #f4d7e4;
+        border-radius: 14px;
+        background: white;
+        box-shadow: 0 5px 12px #9b42631a;
+      }
+      .countdown-value {
+        display: block;
+        color: #a43b6b;
+        font-size: clamp(22px, 5vw, 32px);
+        line-height: 1;
+      }
+      .countdown-label {
+        display: block;
+        margin-top: 7px;
+        color: #98627b;
+        font: 10px Arial;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+      .countdown-message {
+        margin: 0;
+        color: #98627b;
+        font: 13px/1.5 Arial;
+      }
+      .small {
+        font: 12px Arial;
+        color: #98627b;
+      }
+      .primary,
+      .secondary {
+        display: inline-block;
+        padding: 13px 23px;
+        border-radius: 30px;
+        margin: 5px;
+        transition: 0.2s;
+      }
+      .primary {
+        background: linear-gradient(135deg, #e95a9a, #c93679);
+        color: white;
+        box-shadow: 0 8px 18px #c9367933;
+      }
+      .primary:disabled {
+        cursor: default;
+        opacity: 0.8;
+        transform: none;
+      }
+      .secondary {
+        background: #fff7fb;
+        color: #a43b6b;
+        border: 1px solid #edbfd3;
+      }
+      .primary:hover,
+      .secondary:hover {
+        transform: translateY(-2px);
+      }
+      .hidden {
+        display: none !important;
+      }
+      .view {
+        display: none;
+      }
+      .view.active {
+        display: block;
+        animation: fade 0.35s;
+      }
+      .journey-scroll-page .panel {
+        display: flex;
+        flex-direction: column;
+        min-height: calc(100vh + 140px);
+      }
+      .journey-scroll-page .journey-continue {
+        align-self: center;
+        margin-top: auto;
+      }
+      @keyframes fade {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .home-actions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        max-width: 650px;
+        margin: 28px auto;
+      }
+      .action-card {
+        background: #fff8fc;
+        border: 1px solid #f2cbdc;
+        border-radius: 20px;
+        padding: 22px 15px;
+        color: #71334f;
+        box-shadow: 0 8px 22px #a64d7514;
+        transition:
+          background 0.2s ease,
+          border-color 0.2s ease,
+          color 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+      .action-card:not(:disabled):hover {
+        color: white;
+        background: linear-gradient(135deg, #e95a9a, #c93679);
+        border-color: #c93679;
+        box-shadow: 0 12px 28px #c9367955;
+        animation: action-card-hover 0.6s ease-in-out infinite alternate;
+      }
+      @keyframes action-card-hover {
+        from {
+          transform: translateY(-2px) scale(1.01);
+        }
+        to {
+          transform: translateY(-5px) scale(1.03);
+        }
+      }
+      .action-card b {
+        display: block;
+        font-size: 21px;
+        margin-bottom: 8px;
+      }
+      .action-card span {
+        font: 12px Arial;
+        line-height: 1.5;
+      }
+      .action-card:disabled {
+        background: #e8e4e6;
+        border-color: #d7d1d4;
+        color: #8c8589;
+        box-shadow: none;
+        filter: grayscale(1);
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+      .action-card:disabled:hover {
+        transform: none;
+      }
+      .navline {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 12px;
+      }
+      .back {
+        background: #fff7fb;
+        color: #99416a;
+        border: 1px solid #f0c7d9;
+        border-radius: 22px;
+        padding: 9px 15px;
+      }
+      .gift-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 15px;
+        margin-top: 25px;
+      }
+      .gift-card {
+        background: #fff9fc;
+        border: 1px solid #f1cbdc;
+        border-radius: 20px;
+        padding: 16px;
+        overflow: hidden;
+      }
+      .gift-image {
+        position: relative;
+        height: 170px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, #f7c6dc, #fff2f8);
+        display: grid;
+        place-items: center;
+        font-size: 58px;
+        overflow: hidden;
+      }
+      .gift-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .gift-fallback {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        font-size: 58px;
+      }
+      .gift-wrap-cover {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        display: grid;
+        place-items: center;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        border: 2px solid #fff8fb;
+        border-radius: 14px;
+        color: #fff8fb;
+        background: repeating-linear-gradient(
+          135deg,
+          #e95a9a 0 18px,
+          #d94b88 18px 36px
+        );
+        font-size: 58px;
+        box-shadow: inset 0 0 0 8px #f7b7d1;
+      }
+      .gift-wrap-cover::before,
+      .gift-wrap-cover::after {
+        position: absolute;
+        content: "";
+        background: #ffe4ef;
+      }
+      .gift-wrap-cover::before {
+        top: 0;
+        bottom: 0;
+        left: 44%;
+        width: 12%;
+      }
+      .gift-wrap-cover::after {
+        top: 43%;
+        right: 0;
+        left: 0;
+        height: 14%;
+      }
+      .gift-wrap-cover span {
+        z-index: 1;
+        filter: drop-shadow(0 3px 4px #7f294c66);
+      }
+      .wrapped-gift.unwrapping .gift-wrap-cover {
+        animation: unwrap-paper 0.75s ease-in forwards;
+        pointer-events: none;
+      }
+      @keyframes unwrap-paper {
+        45% {
+          transform: translateY(-18px) rotate(-7deg) scale(1.04);
+        }
+        to {
+          transform: translate(22px, -140%) rotate(16deg) scale(0.82);
+          opacity: 0;
+        }
+      }
+      .gift-card h3 {
+        font-weight: normal;
+        font-size: 21px;
+        margin: 14px 0 6px;
+      }
+      .gift-card p {
+        font: 13px Arial;
+        line-height: 1.55;
+        color: #8c5871;
+        min-height: 40px;
+      }
+      .status {
+        display: inline-block;
+        border-radius: 20px;
+        padding: 7px 11px;
+        background: #f8e3ed;
+        color: #9c4770;
+        font: 700 10px Arial;
+      }
+      .status.done {
+        background: #e4f2e8;
+        color: #3d7951;
+      }
+      .order-result {
+        background: #fff0f7;
+        border: 1px dashed #e58bb4;
+        border-radius: 14px;
+        padding: 12px;
+        margin-top: 12px;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+      .heart-play-area {
+        position: relative;
+        width: min(100%, 540px);
+        height: 250px;
+        margin: 22px auto;
+        overflow: hidden;
+        border: 1px dashed #e58bb4;
+        border-radius: 20px;
+        background: #fff8fc;
+      }
+      .heart {
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 34px;
+        background: #fff4fa;
+        border-radius: 50%;
+        width: 68px;
+        height: 68px;
+        box-shadow: 0 5px 15px #a13c6720;
+        transition: left 0.2s ease, top 0.2s ease, transform 0.15s ease;
+        touch-action: manipulation;
+      }
+      .heart:hover {
+        transform: scale(1.08);
+      }
+      #continue-story:disabled {
+        cursor: not-allowed;
+        opacity: 0.55;
+      }
+      .journey-continue:disabled {
+        cursor: not-allowed;
+        opacity: 0.55;
+        transform: none;
+      }
+      .progress {
+        height: 8px;
+        background: #f3d5e3;
+        border-radius: 20px;
+        overflow: hidden;
+        max-width: 300px;
+        margin: 12px auto;
+      }
+      .progress span {
+        display: block;
+        height: 100%;
+        width: 0;
+        background: var(--rose);
+        transition: 0.2s;
+      }
+      .timeline {
+        display: grid;
+        gap: 14px;
+        text-align: left;
+        margin-top: 25px;
+      }
+      .event {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        gap: 16px;
+        padding: 17px;
+        background: #fff8fb;
+        border-radius: 17px;
+        border: 1px solid #f4d7e4;
+        transition: background-color 0.2s ease, border-color 0.2s ease;
+      }
+      .event.visited {
+        background: #f3e8ed;
+        border-color: #e6c6d5;
+      }
+      .date {
+        font: 700 12px Arial;
+        color: #bf4d7e;
+      }
+      .date-link {
+        padding: 0;
+        background: transparent;
+        color: inherit;
+        text-align: left;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      .date-link:hover {
+        color: var(--rose);
+      }
+      .date-link.visited {
+        color: #c93679;
+      }
+      .date-link:focus-visible {
+        outline: 2px solid var(--rose);
+        outline-offset: 3px;
+      }
+      .story-image {
+        display: block;
+        width: min(100%, 560px);
+        height: auto;
+        margin: 24px auto;
+        border-radius: 20px;
+        object-fit: contain;
+        box-shadow: 0 12px 30px #9b42632a;
+      }
+      .story-note {
+        max-width: 580px;
+        margin: 0 auto;
+      }
+      .event h3 {
+        margin: 0 0 6px;
+        font-size: 20px;
+        font-weight: normal;
+      }
+      .event p {
+        margin: 0;
+        font-size: 14px;
+      }
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-top: 24px;
+      }
+      .photo {
+        margin: 0;
+        border-radius: 17px;
+        overflow: hidden;
+        background: #fff3f8;
+        display: flex;
+        flex-direction: column;
+        color: #9c5274;
+        font: 13px Arial;
+      }
+      .photo-frame {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 1;
+        overflow: hidden;
+        background: linear-gradient(135deg, #f7c6dc, #fff3f8);
+      }
+      .photo-frame img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+      .photo-caption {
+        margin: 0;
+        padding: 10px 8px;
+        background: #fff3f8;
+        color: #9c5274;
+        font: 13px/1.4 Arial;
+        text-align: center;
+      }
+      .photo-fallback {
+        padding: 10px;
+        text-align: center;
+      }
+      .gift-open {
+        font-size: 72px;
+        background: none;
+        transition: 0.25s;
+      }
+      .gift-open:hover {
+        transform: rotate(-7deg) scale(1.08);
+      }
+      .reveal {
+        margin: 20px auto 0;
+        padding: 20px;
+        background: #fff7fb;
+        border-radius: 18px;
+        max-width: 560px;
+      }
+      .birthday-reveal-image {
+        display: block;
+        width: min(100%, 360px);
+        height: auto;
+        margin: 18px auto 0;
+        border-radius: 16px;
+        box-shadow: 0 10px 24px #9b42632a;
+      }
+      .envelope-wrap {
+        margin: 25px auto;
+        max-width: 260px;
+        cursor: pointer;
+        transition: margin-top 0.3s ease;
+      }
+      .envelope-wrap.opened {
+        margin-top: 110px;
+      }
+      .puzzle-board {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5px;
+        width: min(360px, 100%);
+        aspect-ratio: 3 / 4;
+        margin: 22px auto 10px;
+        padding: 6px;
+        border-radius: 18px;
+        background: #f3b8d2;
+        box-shadow: 0 10px 24px #9b42632a;
+      }
+      .puzzle-complete-image {
+        display: block;
+        width: min(360px, 100%);
+        height: auto;
+        margin: 22px auto 10px;
+        border-radius: 18px;
+        box-shadow: 0 10px 24px #9b42632a;
+      }
+      .puzzle-piece {
+        min-width: 0;
+        min-height: 0;
+        border: 2px solid #fff8fb;
+        border-radius: 8px;
+        background-repeat: no-repeat;
+        background-size: 300% 300%;
+        transition:
+          transform 0.15s,
+          border-color 0.15s,
+          box-shadow 0.15s;
+      }
+      .puzzle-piece.selected {
+        z-index: 1;
+        transform: scale(0.94);
+        border-color: #c93679;
+        box-shadow: 0 0 0 3px #fff8fb;
+      }
+      .puzzle-board.solved .puzzle-piece {
+        cursor: default;
+      }
+      .envelope {
+        position: relative;
+        height: 155px;
+        background: #e98db4;
+        border-radius: 12px;
+        box-shadow: 0 14px 25px #9d41602c;
+        display: grid;
+        place-items: center;
+        font-size: 58px;
+      }
+      .envelope:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-left: 130px solid transparent;
+        border-right: 130px solid transparent;
+        border-top: 90px solid #f5b4ce;
+        transform-origin: top;
+        transition: 0.4s;
+      }
+      .envelope.open:before {
+        transform: rotateX(180deg);
+      }
+      .letter {
+        text-align: left;
+        white-space: pre-line;
+        line-height: 1.8;
+      }
+      .candle {
+        font-size: 74px;
+        display: block;
+        margin: 12px;
+      }
+      footer {
+        text-align: center;
+        color: #995b78;
+        font-size: 13px;
+        padding: 20px;
+      }
+      @media (max-width: 680px) {
+        .gift-grid {
+          grid-template-columns: 1fr;
+        }
+        .gift-image {
+          height: 210px;
+        }
+        .home-actions {
+          grid-template-columns: 1fr;
+        }
+        .gallery {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .event {
+          grid-template-columns: 75px 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="floaties"></div>
+    <audio id="birthday-song" preload="none"></audio>
+    <audio id="applause-sound" preload="none"></audio>
+    <main>
+      <section class="view active" id="home-view">
+        <div class="panel hero">
+          <div>
+            <div class="eyebrow">A tiny surprise, made just for you</div>
+            <h1>Hey, Love 💗</h1>
+            <p class="lead">
+              Today is not just another day. It's the day my favourite person
+              came into this world. I made a little world just for you…
+            </p>
+            <div class="countdown-card">
+              <h2 class="countdown-title" id="countdown-title">
+                Your special day is almost here 💕
+              </h2>
+              <div
+                class="countdown-units"
+                role="timer"
+                aria-label="Countdown to November 23, 2026"
+              >
+                <div class="countdown-unit">
+                  <span class="countdown-value" id="countdown-days">0</span>
+                  <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-unit">
+                  <span class="countdown-value" id="countdown-hours">0</span>
+                  <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-unit">
+                  <span class="countdown-value" id="countdown-minutes">0</span>
+                  <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-unit">
+                  <span class="countdown-value" id="countdown-seconds">0</span>
+                  <span class="countdown-label">Seconds</span>
+                </div>
+              </div>
+              <p class="countdown-message" id="countdown-message">
+                Just a little more... 💗
+              </p>
+            </div>
+            <p class="small">Made with love, just for you ♡</p>
+          </div>
+        </div>
+      </section>
+      <section class="view" id="birthday-start-view">
+        <div class="panel hero">
+          <div>
+            <div class="eyebrow">The wait is over</div>
+            <h1>Your special day is here! 🎉</h1>
+            <p class="lead">
+              cheers to 25 years, 9131 days, millions of heart beats... 😭💕
+            </p>
+            <button
+              class="primary"
+              onclick="showView('celebrate-view')"
+            >
+              Let's celebrate your birthday, babes 💗
+            </button>
+            <p
+              class="small hidden"
+              id="birthday-song-status"
+              aria-live="polite"
+            ></p>
+            <button
+              class="secondary hidden"
+              id="birthday-song-play"
+              type="button"
+            >
+              Play birthday song ♬
+            </button>
+          </div>
+        </div>
+      </section>
+      <section class="view" id="gifts-view">
+        <div class="panel">
+          <div class="navline">
+            <button
+              class="back"
+              onclick="showView('celebrate-again-view')"
+              >← Celebrate Again</button
+            ><span class="small">A little gift corner</span>
+          </div>
+          <div class="eyebrow">A few things picked just for you</div>
+          <h2>Explore Your Birthday Gifts 🎁</h2>
+          <p>
+            One you've already unwrapped, and two little surprises I can't wait
+            for you to see.
+          </p>
+          <div class="gift-grid">
+            <article class="gift-card">
+              <div class="gift-image">
+                <img
+                  src="assets/photos/Birthday wish/miller fox leather jacket.webp"
+                  alt="Your leather jacket"
+                  onerror="this.parentElement.textContent = '🧥'"
+                />
+              </div>
+              <span class="status done">ALREADY GIFTED ✓</span>
+              <h3>The Leather Jacket</h3>
+              <p>
+                Your jacket, already out on adventures with you. I hope you love
+                wearing it as much as I loved choosing it.
+              </p>
+              <button class="secondary" onclick="toggleInfo('jacket-info')">
+                A little note ♡
+              </button>
+              <div id="jacket-info" class="order-result hidden">
+                Already yours! A gift chosen with love, and hopefully one that
+                reminds you of me whenever you wear it. 💗
+              </div>
+            </article>
+            <article class="gift-card">
+              <div class="gift-image">
+                <img
+                  src="assets/photos/Birthday wish/braclet.webp"
+                  alt="Silver bracelet surprise"
+                  onerror="this.parentElement.textContent = '🔗'"
+                />
+              </div>
+              <span class="status">SECRET SURPRISE ✨</span>
+              <h3>Silver Bracelet</h3>
+              <p>
+                A little something to wear and keep close. Shhh… this one is a
+                surprise.
+              </p>
+              <button class="primary" onclick="revealOrder('bracelet')">
+                Reveal my surprise
+              </button>
+              <div id="bracelet-result" class="order-result hidden"></div>
+            </article>
+            <article class="gift-card">
+              <div class="gift-image">
+                <img
+                  src="assets/photos/Birthday wish/Framed Smile in the Garden.png"
+                  alt="Personalised photo frame surprise"
+                  onerror="this.parentElement.textContent = '🖼️'"
+                />
+              </div>
+              <span class="status">SECRET SURPRISE ✨</span>
+              <h3>Our Little Photo Frame</h3>
+              <p>
+                A tiny frame holding one of our favourite memories. Another
+                surprise waiting for you.
+              </p>
+              <button class="primary" onclick="revealOrder('frame')">
+                Reveal my surprise
+              </button>
+              <div id="frame-result" class="order-result hidden"></div>
+            </article>
+          </div>
+          <p class="small">
+            The two surprise reveals are birthday animations, not live courier
+            tracking. 💌
+          </p>
+        </div>
+      </section>
+      <section class="view" id="celebrate-view">
+        <div class="panel">
+          <div class="navline">
+            <button
+              class="back"
+              onclick="showView('birthday-start-view')"
+            >
+              ← Birthday page
+            </button>
+          </div>
+          <div class="eyebrow">A little journey through us</div>
+          <h2>Let's Celebrate It ✨</h2>
+          <p class="small">
+            Complete each page in order to unlock the next one.
+          </p>
+          <div class="home-actions" style="grid-template-columns: 1fr">
+            <button
+              class="action-card"
+              data-journey-index="0"
+              onclick="showView('heart-view')"
+            >
+              <b>❤️ Catch My Heart</b
+              ><span>A tiny game before our story</span></button
+            ><button
+              class="action-card"
+              data-journey-index="1"
+              disabled
+              onclick="showView('story-view')"
+            >
+              <b>Our Story Together</b
+              ><span>All the little milestones that made us</span></button
+            ><button
+              class="action-card"
+              data-journey-index="2"
+              disabled
+              onclick="showView('moments-view')"
+            >
+              <b>📸 Moments We Keep</b
+              ><span>A gallery of our favourite memories</span></button
+            ><button
+              class="action-card"
+              data-journey-index="3"
+              disabled
+              onclick="showView('gift-message-view')"
+            >
+              <b>🎁 Gifts For You</b
+              ><span>One more little birthday message</span></button
+            ><button
+              class="action-card"
+              data-journey-index="4"
+              disabled
+              onclick="showView('secret-view')"
+            >
+              <b>💌 A Secret Just For You</b
+              ><span>A letter, saved just for you</span></button
+            ><button
+              class="action-card"
+              data-journey-index="5"
+              disabled
+              onclick="showView('wish-view')"
+            >
+              <b>🕯️ Make A Wish</b><span>One last birthday surprise</span>
+            </button>
+          </div>
+        </div>
+      </section>
+      <section class="view" id="heart-view">
+        <div class="panel">
+          <div class="navline">
+            <button class="back" onclick="showView('celebrate-view')">
+              ← Celebrate It
+            </button>
+          </div>
+          <div class="eyebrow">A little game before the surprises</div>
+          <h2>Catch My Heart ❤️</h2>
+          <p>
+            Catch the heart five times to unlock our story. It might dodge when
+            you hover!
+          </p>
+          <div class="progress"><span id="progress"></span></div>
+          <p class="small" id="count" aria-live="polite">Caught 0/5</p>
+          <div class="heart-play-area" id="heart-play-area">
+            <button class="heart" id="moving-heart" aria-label="Catch the heart">
+              💗
+            </button>
+          </div>
+          <p id="game-message" class="small">
+            Psst… catch me if you can. 💕
+          </p>
+          <button
+            class="secondary journey-continue"
+            id="continue-story"
+            data-journey-continue="heart-view"
+            disabled
+            onclick="showView('story-view')"
+          >
+            Continue to our story →
+          </button>
+        </div>
+      </section>
+      <section class="view journey-scroll-page" id="story-view">
+        <div class="panel">
+          <div class="navline">
+            <button class="back" onclick="showView('celebrate-view')">
+              ← Celebrate It
+            </button>
+          </div>
+          <div class="eyebrow">Every love story has its little moments</div>
+          <h2>Our Story Together</h2>
+          <p>From the first hello to all the memories still waiting for us.</p>
+          <div class="timeline" id="timeline"></div>
+          <p class="small">Scroll to the bottom to unlock the next page.</p>
+          <button
+            class="secondary journey-continue"
+            data-journey-continue="story-view"
+            disabled
+            onclick="showView('moments-view')"
+          >
+            Continue to Moments We Keep →
+          </button>
+        </div>
+      </section>
+      <section class="view" id="memory-view">
+        <div class="panel">
+          <div class="navline">
+            <button class="back" onclick="showView('story-view')">
+              ← Our Story
+            </button>
+          </div>
+          <div class="eyebrow" id="memory-date"></div>
+          <h2 id="memory-title"></h2>
+          <img class="story-image hidden" id="memory-image" alt="" />
+          <p class="story-note hidden" id="memory-note"></p>
+          <p class="small" id="memory-placeholder">
+            Add this date's photo and message in its CONFIG.milestones entry.
+          </p>
+        </div>
+      </section>
+      <section class="view journey-scroll-page" id="moments-view">
+        <div class="panel">
+          <div class="navline">
+            <button class="back" onclick="showView('celebrate-view')">
+              ← Celebrate It
+            </button>
+          </div>
+          <div class="eyebrow">A collection of us</div>
+          <h2>Moments We Keep 📸</h2>
+          <p>Tap Play me to see our photos and hear our song.</p>
+          <button class="primary" id="moments-play-button">Play me ♬</button>
+          <p class="small hidden" id="moments-music-status" aria-live="polite"></p>
+          <audio id="our-song" preload="none"></audio>
+          <div class="gallery hidden" id="gallery"></div>
+          <p class="small">Scroll to the bottom after viewing your memories.</p>
+          <button
+            class="secondary journey-continue"
+            data-journey-continue="moments-view"
+            disabled
+            onclick="showView('gift-message-view')"
+          >
+            Continue to Gifts For You →
+          </button>
+        </div>
+      </section>
+      <section class="view" id="gift-message-view">
+        <div class="panel">
+          <div class="navline">
+            <button class="back" onclick="showView('celebrate-view')">
+              ← Celebrate It
+            </button>
+          </div>
+          <div class="eyebrow">A little something for you</div>
+          <h2>Gifts For You 🎁</h2>
+          <p>Tap each gift once to unwrap it and reveal its surprise.</p>
+          <p class="small" id="gift-progress" aria-live="polite"></p>
+          <div class="gift-grid" id="wrapped-gifts"></div>
+          <button
+            class="secondary journey-continue"
+            data-journey-continue="gift-message-view"
+            disabled
+            onclick="showView('secret-view')"
+          >
+            Continue to A Secret Just For You →
+          </button>
+        </div>
+      </section>
+      <section class="view journey-scroll-page" id="secret-view">
+        <div class="panel">
+          <div class="navline">
+            <button class="back" onclick="showView('celebrate-view')">
+              ← Celebrate It
+            </button>
+          </div>
+          <div class="eyebrow">There's something I saved just for you</div>
+          <h2>A Secret Just For You 💌</h2>
+          <p>
+            Piece My Heart Together: solve this little 3×3 puzzle to unlock
+            your letter.
+          </p>
+          <div
+            class="puzzle-board"
+            id="puzzle-board"
+            aria-label="Piece My Heart Together puzzle"
+          ></div>
+          <img
+            class="puzzle-complete-image hidden"
+            id="puzzle-complete-image"
+            alt="Our completed couple photo"
+          />
+          <p class="small" id="puzzle-status" aria-live="polite">
+            Tap two pieces to swap them until the photo is complete.
+          </p>
+          <div
+            class="envelope-wrap hidden"
+            id="envelope-button"
+            role="button"
+            tabindex="0"
+          >
+            <div class="envelope" id="envelope">💌</div>
+          </div>
+          <p class="small" id="envelope-hint">
+            Complete the puzzle to unlock the envelope.
+          </p>
+          <div class="reveal hidden" id="letter-box">
+            <h2 style="font-size: 30px">To my favourite person,</h2>
+            <div class="letter" id="letter-text"></div>
+          </div>
+          <p class="small">Read your letter and scroll to the bottom to continue.</p>
+          <button
+            class="secondary journey-continue"
+            data-journey-continue="secret-view"
+            disabled
+            onclick="showView('wish-view')"
+          >
+            Continue to Make A Wish →
+          </button>
+        </div>
+      </section>
+      <section class="view" id="wish-view">
+        <div class="panel">
+          <div class="navline">
+            <button class="back" onclick="showView('celebrate-view')">
+              ← Celebrate It
+            </button>
+          </div>
+          <div class="eyebrow">One last birthday wish</div>
+          <h2>Make A Wish 🕯️</h2>
+          <span class="candle" id="candle">🕯️</span>
+          <p id="wish-text">
+            Close your eyes, make a wish, and tap the button.
+          </p>
+          <button class="primary" id="blow-button">Blow the candle ✨</button>
+          <div class="reveal hidden" id="final-message">
+            Muuuuaaahhhh..!! May this year bring you happiness, good health, success, and
+            everything your heart is quietly wishing for. 🎂🌠 HAPPIEST BIRTHDAY MY MAN! I love you. ❤️😘
+            <img
+              class="birthday-reveal-image"
+              src="assets/photos/Birthday wish/after-candle-kiss.jpg"
+              alt="A sweet kiss between two little characters"
+            />
+          </div>
+          <button
+            class="secondary journey-continue"
+            data-journey-continue="wish-view"
+            disabled
+            onclick="showView('celebrate-again-view')"
+          >
+            Finish the journey →
+          </button>
+        </div>
+      </section>
+      <section class="view" id="celebrate-again-view">
+        <div class="panel hero">
+          <div>
+            <div class="eyebrow">One more birthday surprise</div>
+            <h1>Celebrate Again! 💗</h1>
+            <p class="lead">
+              Thank you for going through my little birthday journey.
+            </p>
+            <button
+              class="secondary"
+              id="celebrate-again-button"
+              onclick="showView('celebrate-view')"
+            >
+              Celebrate Again 💗
+            </button>
+            <button
+              class="primary"
+              id="explore-birthday-gifts"
+              disabled
+              onclick="showView('gifts-view')"
+            >
+              Explore Your Birthday Gifts 🎁
+            </button>
+          </div>
+        </div>
+      </section>
+      <footer id="site-footer">Made with all my love · Happy Birthday ❤️</footer>
+    </main>
+    <script>
+      const CONFIG = {
+        milestones: [
+          {
+            date: "April 2022",
+            title: "The day our story began",
+            text: "The day our paths crossed, and I'm so glad I went there that day. 💘",
+            detailImage: "assets/photos/Birthday wish/1stmeet.jpg",
+            detailText:
+              "This is how we first met each other. Sometimes I think about how, if I hadn't gone there that day, we might have never met. Maybe it was just an ordinary day for everyone else, but for me, it became the beginning of something so special. I'm genuinely so glad I went there that day, because otherwise I might have never found you. And if I could go back, I'd still choose to go there, a thousand times over, just to meet you again. ❤️",
+          },
+          {
+            date: "April 2023",
+            title: "Our first special memory",
+            text: "Our first time meeting after tuition, a nervous bike ride, and a memory I'll always cherish. 💕",
+            detailImage: "assets/photos/Birthday wish/falling in love.jpg",
+            detailText: "This was our first time meeting after tuition. I still remember how nervous I felt riding on your bike. I had so many butterflies, and yet I was so happy to finally meet you. I didn't know how that little meeting would turn into so many beautiful memories. But I'm so glad I went, so glad I met you, and so glad that day became another little chapter of our story. 💗",
+          },
+          {
+            date: "September 2023",
+            title: "A milestone worth keeping",
+            text: "Rainy days, college meetups and cheering for you at football. ⚽💗",
+            detailImage: "assets/photos/Birthday wish/meeting each other.jpg",
+            detailText: "Those were the days when we started meeting after college. Somehow, it felt like it rained almost every time we met! We'd roam around here and there, getting completely drenched, without really caring about anything. I also started coming to watch you play football. And guess what? I still do! Though sometimes I don't manage to make it, I promise I'll always be one of your biggest cheerleaders. Those little after-college adventures will always have a special place in my heart. I wish we could relive those rainy days all over again. 💓",
+          },
+          {
+            date: "BIRTHDAY",
+            title: "Your birthday",
+            text: "Another year of celebrating my favourite person. Happy birthday, my love! 😘",
+            detailImage: "assets/photos/Birthday wish/birthday.jpg",
+            detailText: "Happy birthday, my love! Today is all about you, and I just want to remind you how much you mean to me. You bring so much happiness, love and warmth into my life, and I'm grateful every single day to have you by my side. I hope this new year of your life brings you all the happiness, success, good health and beautiful experiences you deserve. May you achieve everything you've been working towards and never stop chasing your dreams. I wish I could be right there beside you to celebrate, hug you and make this day even more special. No matter what life brings, I'll always be cheering for you. Here's to many more birthdays, adventures and memories together. Love you to the moon and back! 💗",
+          },
+        ],
+        photos: [
+          { src: "assets/photos/Birthday wish/growing together.jpg", caption: "A little bit of us, growing every day. 🌸" },
+          {
+            src: "assets/photos/Birthday wish/bluetop.jpg",
+            caption: "Prinsep Ghat felt even more beautiful with you beside me. 💙",
+          },
+          { src: "assets/photos/Birthday wish/biceps.jpg", caption: "Random café plans in Kolkata, with you flexing those biceps! 💪🏼" },
+          { src: "assets/photos/Birthday wish/taki1.jpg", caption: "Exploring Taki together and collecting memories along the way. 💞" },
+          { src: "assets/photos/Birthday wish/bokkhali.jpg", caption: "Sea breeze and sunshine made Bakkhali even more beautiful with you. 🌊" },
+          { src: "assets/photos/Birthday wish/palmvillage.jpg", caption: "Palm Village, poolside fun & table tennis with you. 🎾" },
+        ],
+        giftUnwraps: [
+          {
+            title: "The Leather Jacket",
+            image: "assets/photos/Birthday wish/miller fox leather jacket.webp",
+            emoji: "🧥",
+            message:
+              "Your jacket, already out on adventures with you. I hope you love wearing it as much as I loved choosing it.",
+          },
+          {
+            title: "Silver Bracelet",
+            image: "assets/photos/Birthday wish/braclet.webp",
+            emoji: "🔗",
+            message:
+              "A little something to wear and keep close. Shhh… this one is a surprise.",
+          },
+          {
+            title: "Our Little Photo Frame",
+            image: "assets/photos/Birthday wish/Framed Smile in the Garden.png",
+            emoji: "🖼️",
+            message:
+              "A tiny frame holding one of our favourite memories. Another surprise waiting for you.",
+          },
+        ],
+        songFile: "assets/I Love You Theme-[AudioTrimmer.com].mp3",
+        birthdaySongFile:
+          "assets/shidenbeatsmusic-happy-birthday-to-you-bossa-nova-style-arrangement-21399.mp3",
+        applauseSoundFile: "assets/freesound_community-claps-44774.mp3",
+        puzzleImage: "assets/photos/Birthday wish/how it is going.jpg",
+        letter: `Hey, love! ❤️
+
+I wish I could shower you with all my love right now, but I guess I'll have to wait a little longer for that midnight birthday celebration. 🥺 I dream of the day when I can be right beside you, cuddling you, waking you up at exactly 12 AM and taking you to cut the cake I've made just for you. 🎂💗
+
+I want all those little moments with you, the random hugs, silly conversations, late-night cuddles, spontaneous plans and all the ordinary days that become special just because we're together. I want to experience every little thing with you and you only. The whole world feels so small when I think about how much you mean to me.
+
+In this lifetime and every lifetime after, I want to find you, choose you and be yours, always. ❤️
+
+I love you endlessly, my love. Happy birthday, my favourite person! 💕🧿`,
+      };
+      const pageParams = new URLSearchParams(window.location.search);
+      const countdownTestMode = pageParams.get("countdown") === "1";
+      const developerPreview =
+        pageParams.get("preview") === "1" && !countdownTestMode;
+      if (countdownTestMode) {
+        document
+          .querySelector(".countdown-units")
+          .setAttribute("aria-label", "30-second test countdown");
+      }
+      const journeyStages = [
+        "heart-view",
+        "story-view",
+        "moments-view",
+        "gift-message-view",
+        "secret-view",
+        "wish-view",
+      ];
+      let journeyProgress = 0;
+      const journeyActions = {
+        momentsPlayed: false,
+        letterOpened: false,
+      };
+      function updateJourneyLocks() {
+        document
+          .querySelectorAll("[data-journey-index]")
+          .forEach((button) => {
+            const locked =
+              Number(button.dataset.journeyIndex) > journeyProgress;
+            button.disabled = locked;
+            button.setAttribute("aria-disabled", String(locked));
+          });
+        document.getElementById("explore-birthday-gifts").disabled =
+          journeyProgress < journeyStages.length;
+        document
+          .querySelectorAll("[data-journey-continue]")
+          .forEach((button) => {
+            const stageIndex = journeyStages.indexOf(
+              button.dataset.journeyContinue,
+            );
+            button.disabled =
+              stageIndex < 0 || journeyProgress <= stageIndex;
+          });
+      }
+      function completeJourneyStage(stageId) {
+        const stageIndex = journeyStages.indexOf(stageId);
+        if (stageIndex === journeyProgress) {
+          journeyProgress++;
+          updateJourneyLocks();
+        }
+      }
+      function updateJourneyFromScroll() {
+        const activeView = document.querySelector(".view.active");
+        if (
+          !activeView ||
+          activeView.getBoundingClientRect().bottom > window.innerHeight + 20
+        ) {
+          return;
+        }
+        if (activeView.id === "story-view") {
+          completeJourneyStage("story-view");
+        } else if (
+          activeView.id === "moments-view" &&
+          journeyActions.momentsPlayed
+        ) {
+          completeJourneyStage("moments-view");
+        } else if (
+          activeView.id === "secret-view" &&
+          journeyActions.letterOpened
+        ) {
+          completeJourneyStage("secret-view");
+        }
+      }
+      window.addEventListener("scroll", updateJourneyFromScroll, {
+        passive: true,
+      });
+      window.addEventListener("resize", updateJourneyFromScroll);
+      updateJourneyLocks();
+      function showView(id) {
+        const stageIndex = journeyStages.indexOf(id);
+        if (stageIndex > journeyProgress) return;
+        if (id === "memory-view" && journeyProgress < 1) return;
+        if (id === "gifts-view" && journeyProgress < journeyStages.length) {
+          return;
+        }
+        document
+          .querySelectorAll(".view")
+          .forEach((v) => v.classList.remove("active"));
+        document.getElementById(id).classList.add("active");
+        document.getElementById("site-footer").textContent =
+          id === "home-view"
+            ? "Made with all my love · Happy Birthday ❤️"
+            : "We've been together for 1,315 days—and here's to many more! 💗";
+        const previousScrollBehavior =
+          document.documentElement.style.scrollBehavior;
+        document.documentElement.style.scrollBehavior = "auto";
+        window.scrollTo(0, 0);
+        document.documentElement.style.scrollBehavior = previousScrollBehavior;
+        requestAnimationFrame(() => {
+          if (id === "heart-view") placeHeart();
+          updateJourneyFromScroll();
+        });
+      }
+      function openMilestone(milestone) {
+        const hasImage = Boolean(milestone.detailImage);
+        const hasText = Boolean(milestone.detailText);
+        const image = document.getElementById("memory-image");
+        const note = document.getElementById("memory-note");
+
+        document.getElementById("memory-date").textContent = milestone.date;
+        document.getElementById("memory-title").textContent = milestone.title;
+        image.classList.toggle("hidden", !hasImage);
+        note.classList.toggle("hidden", !hasText);
+        document
+          .getElementById("memory-placeholder")
+          .classList.toggle("hidden", hasImage && hasText);
+        if (hasImage) {
+          image.src = milestone.detailImage;
+          image.alt = milestone.title;
+        } else {
+          image.removeAttribute("src");
+        }
+        note.textContent = milestone.detailText || "";
+        showView("memory-view");
+      }
+      const puzzleBoard = document.getElementById("puzzle-board");
+      const puzzleStatus = document.getElementById("puzzle-status");
+      const puzzleCompleteImage =
+        document.getElementById("puzzle-complete-image");
+      const puzzleTiles = [];
+      const puzzleOrder = Array.from({ length: 9 }, (_, index) => index);
+      let selectedPuzzlePosition = null;
+      let puzzleSolved = false;
+
+      puzzleCompleteImage.addEventListener("load", () => {
+        puzzleBoard.style.aspectRatio = `${puzzleCompleteImage.naturalWidth} / ${puzzleCompleteImage.naturalHeight}`;
+      });
+      puzzleCompleteImage.addEventListener("error", () => {
+        puzzleStatus.textContent =
+          "The puzzle photo couldn't load. Check CONFIG.puzzleImage.";
+      });
+      puzzleCompleteImage.src = CONFIG.puzzleImage;
+
+      for (let i = puzzleOrder.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [puzzleOrder[i], puzzleOrder[j]] = [puzzleOrder[j], puzzleOrder[i]];
+      }
+      if (puzzleOrder.every((piece, position) => piece === position)) {
+        [puzzleOrder[0], puzzleOrder[1]] = [puzzleOrder[1], puzzleOrder[0]];
+      }
+
+      function updatePuzzleTile(position) {
+        const tile = puzzleTiles[position];
+        const piece = puzzleOrder[position];
+        const column = piece % 3;
+        const row = Math.floor(piece / 3);
+        tile.style.backgroundImage = `url("${CONFIG.puzzleImage}")`;
+        tile.style.backgroundPosition = `${column * 50}% ${row * 50}%`;
+        tile.setAttribute("aria-label", `Puzzle piece ${piece + 1}`);
+        tile.setAttribute(
+          "aria-pressed",
+          String(selectedPuzzlePosition === position),
+        );
+        tile.classList.toggle(
+          "selected",
+          selectedPuzzlePosition === position,
+        );
+      }
+
+      function selectPuzzleTile(position) {
+        if (puzzleSolved) return;
+        if (selectedPuzzlePosition === null) {
+          selectedPuzzlePosition = position;
+          updatePuzzleTile(position);
+          puzzleStatus.textContent = "Now tap another piece to swap.";
+          return;
+        }
+        if (selectedPuzzlePosition === position) {
+          selectedPuzzlePosition = null;
+          updatePuzzleTile(position);
+          puzzleStatus.textContent =
+            "Tap two pieces to swap them until the photo is complete.";
+          return;
+        }
+
+        [puzzleOrder[selectedPuzzlePosition], puzzleOrder[position]] = [
+          puzzleOrder[position],
+          puzzleOrder[selectedPuzzlePosition],
+        ];
+        selectedPuzzlePosition = null;
+        puzzleTiles.forEach((_, tilePosition) =>
+          updatePuzzleTile(tilePosition),
+        );
+
+        if (puzzleOrder.every((piece, tilePosition) => piece === tilePosition)) {
+          puzzleSolved = true;
+          puzzleBoard.classList.add("solved");
+          puzzleTiles.forEach((tile) => (tile.disabled = true));
+          puzzleBoard.classList.add("hidden");
+          puzzleCompleteImage.classList.remove("hidden");
+          puzzleStatus.textContent =
+            "You put our picture back together! Your letter is unlocked. 💗";
+          document
+            .getElementById("envelope-button")
+            .classList.remove("hidden");
+          document.getElementById("envelope-hint").textContent =
+            "You did it! Tap the envelope to open your letter.";
+        } else {
+          puzzleStatus.textContent =
+            "Not quite yet—keep swapping pieces until the photo is complete.";
+        }
+      }
+
+      puzzleOrder.forEach((_, position) => {
+        const tile = document.createElement("button");
+        tile.type = "button";
+        tile.className = "puzzle-piece";
+        tile.addEventListener("click", () => selectPuzzleTile(position));
+        puzzleTiles.push(tile);
+        puzzleBoard.append(tile);
+        updatePuzzleTile(position);
+      });
+
+      const timeline = document.getElementById("timeline");
+      CONFIG.milestones.forEach((m) => {
+        const el = document.createElement("div");
+        el.className = "event";
+        const d = document.createElement("button");
+        d.className = "date date-link";
+        d.type = "button";
+        d.textContent = m.date;
+        d.setAttribute("aria-label", `${m.date}: open ${m.title}`);
+        d.addEventListener("click", () => {
+          el.classList.add("visited");
+          el.style.backgroundColor = "#f3e8ed";
+          el.style.borderColor = "#e6c6d5";
+          d.classList.add("visited");
+          openMilestone(m);
+        });
+        const body = document.createElement("div");
+        const h = document.createElement("h3");
+        h.textContent = m.title;
+        const p = document.createElement("p");
+        p.textContent = m.text;
+        body.append(h, p);
+        el.append(d, body);
+        timeline.append(el);
+      });
+      const gallery = document.getElementById("gallery");
+      CONFIG.photos.forEach((p) => {
+        const el = document.createElement("figure");
+        el.className = "photo";
+        const frame = document.createElement("div");
+        frame.className = "photo-frame";
+        const img = document.createElement("img");
+        img.alt = p.caption;
+        img.onerror = () => {
+          const fallback = document.createElement("span");
+          fallback.className = "photo-fallback";
+          fallback.textContent = `📷 ${p.caption} — Add your photo file`;
+          frame.replaceChildren(fallback);
+        };
+        img.src = p.src;
+        frame.append(img);
+        const caption = document.createElement("figcaption");
+        caption.className = "photo-caption";
+        caption.textContent = p.caption;
+        el.append(frame, caption);
+        gallery.append(el);
+      });
+      document.getElementById("letter-text").textContent = CONFIG.letter;
+      const ourSong = document.getElementById("our-song");
+      if (typeof CONFIG.songFile === "string" && CONFIG.songFile.trim()) {
+        ourSong.src = CONFIG.songFile
+          .split("/")
+          .map((segment) => encodeURIComponent(segment))
+          .join("/");
+      }
+      const birthdaySong = document.getElementById("birthday-song");
+      birthdaySong.src = CONFIG.birthdaySongFile;
+      const applauseSound = document.getElementById("applause-sound");
+      applauseSound.src = CONFIG.applauseSoundFile;
+      function playBirthdaySong() {
+        birthdaySong
+          .play()
+          .then(() => {
+            document
+              .getElementById("birthday-song-status")
+              .classList.add("hidden");
+            document
+              .getElementById("birthday-song-play")
+              .classList.add("hidden");
+          })
+          .catch((error) => {
+            console.warn("Could not start the birthday song.", error);
+            const status = document.getElementById("birthday-song-status");
+            status.textContent =
+              "Your birthday song couldn't start. Tap below to try again. ♬";
+            status.classList.remove("hidden");
+            document
+              .getElementById("birthday-song-play")
+              .classList.remove("hidden");
+          });
+      }
+      document
+        .getElementById("birthday-song-play")
+        .addEventListener("click", playBirthdaySong);
+      function playOurSong(status) {
+        status.classList.remove("hidden");
+        status.textContent = "♪ Starting our song...";
+        return ourSong
+          .play()
+          .then(() => {
+            status.textContent = "♪ Playing our song";
+            return true;
+          })
+          .catch(() => {
+            status.textContent =
+              "♪ Couldn't play the song. Check CONFIG.songFile.";
+            return false;
+          });
+      }
+      function toggleInfo(id) {
+        document.getElementById(id).classList.toggle("hidden");
+      }
+      function revealOrder(which) {
+        const box = document.getElementById(which + "-result");
+        box.classList.remove("hidden");
+        box.innerHTML =
+          "<strong>🎉 Surprise confirmed!</strong><br>Your birthday surprise is on its way to you. Keep an eye on your door… estimated surprise arrival: <strong>in 2 days</strong>. 💗<br><span class='small'>A playful birthday reveal, not live courier tracking.</span>";
+      }
+      let unwrappedGiftCount = 0;
+      const wrappedGifts = document.getElementById("wrapped-gifts");
+      const giftProgress = document.getElementById("gift-progress");
+      giftProgress.textContent = `0 of ${CONFIG.giftUnwraps.length} gifts unwrapped.`;
+      CONFIG.giftUnwraps.forEach((gift, index) => {
+        const card = document.createElement("article");
+        card.className = "gift-card wrapped-gift";
+        const imageFrame = document.createElement("div");
+        imageFrame.className = "gift-image";
+        const image = document.createElement("img");
+        image.src = gift.image;
+        image.alt = gift.title;
+        image.onerror = () => {
+          const fallback = document.createElement("span");
+          fallback.className = "gift-fallback";
+          fallback.textContent = gift.emoji;
+          image.replaceWith(fallback);
+        };
+        imageFrame.append(image);
+        const cover = document.createElement("button");
+        cover.className = "gift-wrap-cover";
+        cover.type = "button";
+        cover.setAttribute("aria-label", `Unwrap gift ${index + 1}`);
+        const coverIcon = document.createElement("span");
+        coverIcon.textContent = "🎁";
+        cover.append(coverIcon);
+        imageFrame.append(cover);
+        const status = document.createElement("span");
+        status.className = "status";
+        status.textContent = "READY TO UNWRAP";
+        const title = document.createElement("h3");
+        title.textContent = `Gift ${index + 1}`;
+        const message = document.createElement("p");
+        message.className = "hidden";
+        cover.addEventListener("click", () => {
+          if (card.classList.contains("unwrapping")) return;
+          cover.disabled = true;
+          card.classList.add("unwrapping");
+          let unwrapped = false;
+          const finishUnwrap = () => {
+            if (unwrapped) return;
+            unwrapped = true;
+            card.classList.remove("unwrapping");
+            card.classList.add("unwrapped");
+            cover.remove();
+            title.textContent = gift.title;
+            message.textContent = gift.message;
+            message.classList.remove("hidden");
+            status.classList.add("done");
+            status.textContent = "UNWRAPPED ✓";
+            unwrappedGiftCount++;
+            giftProgress.textContent = `${unwrappedGiftCount} of ${CONFIG.giftUnwraps.length} gifts unwrapped.`;
+            if (unwrappedGiftCount === CONFIG.giftUnwraps.length) {
+              giftProgress.textContent = "All your gifts are unwrapped! 💗";
+              completeJourneyStage("gift-message-view");
+            }
+          };
+          cover.addEventListener("animationend", finishUnwrap, { once: true });
+          setTimeout(finishUnwrap, 900);
+        });
+        card.append(imageFrame, status, title, message);
+        wrappedGifts.append(card);
+      });
+
+      let caught = 0;
+      const heartPlayArea = document.getElementById("heart-play-area");
+      const movingHeart = document.getElementById("moving-heart");
+      const gameMessage = document.getElementById("game-message");
+      function placeHeart() {
+        const maxLeft = Math.max(
+          0,
+          heartPlayArea.clientWidth - movingHeart.offsetWidth,
+        );
+        const maxTop = Math.max(
+          0,
+          heartPlayArea.clientHeight - movingHeart.offsetHeight,
+        );
+        movingHeart.style.left = `${Math.random() * maxLeft}px`;
+        movingHeart.style.top = `${Math.random() * maxTop}px`;
+      }
+      movingHeart.addEventListener("pointerenter", (event) => {
+        if (caught >= 5 || event.pointerType === "touch" || Math.random() > 0.4) {
+          return;
+        }
+        placeHeart();
+        gameMessage.textContent = "Hehe, you almost caught me! 💕";
+      });
+      movingHeart.addEventListener("click", () => {
+        if (caught >= 5) return;
+        caught++;
+        document.getElementById("count").textContent = `Caught ${caught}/5`;
+        document.getElementById("progress").style.width = `${caught * 20}%`;
+        if (caught === 5) {
+          movingHeart.disabled = true;
+          movingHeart.textContent = "💖";
+          gameMessage.textContent =
+            "You caught my heart five times! Our story is waiting for you. ❤️";
+          completeJourneyStage("heart-view");
+          return;
+        }
+        gameMessage.textContent = "You got me! Find me again. 💗";
+        placeHeart();
+      });
+      document
+        .getElementById("moments-play-button")
+        .addEventListener("click", (event) => {
+          const button = event.currentTarget;
+          const status = document.getElementById("moments-music-status");
+          document.getElementById("gallery").classList.remove("hidden");
+
+          if (!ourSong.paused) {
+            ourSong.pause();
+            status.classList.remove("hidden");
+            status.textContent = "♪ Paused";
+            button.textContent = "Play me ♬";
+            return;
+          }
+
+          playOurSong(status).then((started) => {
+            if (started) {
+              journeyActions.momentsPlayed = true;
+              updateJourneyFromScroll();
+            }
+            button.textContent = started
+              ? "Pause our song ⏸"
+              : "Play me ♬";
+          });
+        });
+      function openLetter() {
+        if (!puzzleSolved) return;
+        document.getElementById("envelope-button").classList.add("opened");
+        document.getElementById("envelope").classList.add("open");
+        document.getElementById("letter-box").classList.remove("hidden");
+        document.getElementById("envelope-hint").textContent =
+          "A little piece of my heart, just for you.";
+        journeyActions.letterOpened = true;
+        updateJourneyFromScroll();
+      }
+      document
+        .getElementById("envelope-button")
+        .addEventListener("click", openLetter);
+      document
+        .getElementById("envelope-button")
+        .addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            openLetter();
+          }
+        });
+      function playApplause() {
+        applauseSound.currentTime = 0;
+        applauseSound.play().catch((error) => {
+          console.error("Could not play the applause sound.", error);
+          document.getElementById("wish-text").textContent =
+            "Wish made! ✨ Your browser couldn't play the applause sound.";
+        });
+      }
+      document.getElementById("blow-button").addEventListener("click", () => {
+        document.getElementById("candle").textContent = "✨";
+        document.getElementById("wish-text").textContent = "Wish made! ✨";
+        document.getElementById("final-message").classList.remove("hidden");
+        const blowButton = document.getElementById("blow-button");
+        blowButton.textContent = "Birthday magic! 🎉";
+        blowButton.disabled = true;
+        playApplause();
+        completeJourneyStage("wish-view");
+        for (let i = 0; i < 35; i++) {
+          const s = document.createElement("span");
+          s.textContent = ["🎉", "💗", "✨", "💕"][i % 4];
+          s.style.cssText = `position:fixed;left:${Math.random() * 100}vw;top:-30px;font-size:22px;z-index:5;pointer-events:none;transition:transform 2.5s,opacity 2.5s`;
+          document.body.append(s);
+          requestAnimationFrame(() => {
+            s.style.transform = `translateY(${80 + Math.random() * 90}vh) rotate(${Math.random() * 500}deg)`;
+            s.style.opacity = "0";
+          });
+          setTimeout(() => s.remove(), 2700);
+        }
+      });
+      const birthdayTarget = countdownTestMode
+        ? Date.now() + 30_000
+        : new Date("2026-11-23T00:00:00+05:30").getTime();
+      let countdownInterval;
+      function updateBirthdayCountdown(now = Date.now()) {
+        const totalSeconds = Math.max(
+          0,
+          Math.ceil((birthdayTarget - now) / 1000),
+        );
+        document.getElementById("countdown-days").textContent = Math.floor(
+          totalSeconds / 86400,
+        );
+        document.getElementById("countdown-hours").textContent = Math.floor(
+          (totalSeconds % 86400) / 3600,
+        );
+        document.getElementById("countdown-minutes").textContent = Math.floor(
+          (totalSeconds % 3600) / 60,
+        );
+        document.getElementById("countdown-seconds").textContent =
+          totalSeconds % 60;
+        if (totalSeconds === 0) {
+          document.getElementById("countdown-title").textContent =
+            "It's your special day! Happy Birthday 🎉";
+          document.getElementById("countdown-message").textContent =
+            "The wait is over—your surprises are ready! 💗";
+          clearInterval(countdownInterval);
+          if (!developerPreview) {
+            showView("birthday-start-view");
+            playBirthdaySong();
+          }
+        }
+      }
+      countdownInterval = window.setInterval(updateBirthdayCountdown, 1000);
+      updateBirthdayCountdown();
+      if (developerPreview) showView("birthday-start-view");
+      const fbox = document.getElementById("floaties");
+      for (let i = 0; i < 25; i++) {
+        const f = document.createElement("span");
+        f.className = "floaty";
+        f.textContent = ["♡", "♥", "✧", "💕"][i % 4];
+        f.style.left = Math.random() * 100 + "%";
+        f.style.animationDuration = 9 + Math.random() * 13 + "s";
+        f.style.animationDelay = -Math.random() * 18 + "s";
+        f.style.fontSize = 14 + Math.random() * 17 + "px";
+        fbox.append(f);
+      }
+    </script>
+  </body>
+</html>

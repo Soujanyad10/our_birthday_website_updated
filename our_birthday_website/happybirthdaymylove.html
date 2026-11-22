@@ -2337,6 +2337,9 @@
                 Just a little more... 💗
               </p>
             </div>
+            <button class="primary" id="home-adventure-button" type="button">
+              Explore the Adventures 🎮⚽🏍️
+            </button>
             <p class="small">Made with love, just for you ♡</p>
           </div>
         </div>
@@ -5963,15 +5966,21 @@ I love you endlessly, my love. Happy birthday, my favourite person! 💕🧿`,
           }
         }, 1000);
       }
+      let universeReturnView = "ready-view";
+      function openBirthdayUniverses(returnView) {
+        universeReturnView = returnView;
+        showUniverseSelection();
+        showView("universe-view");
+      }
       document
         .getElementById("open-birthday-universes")
-        .addEventListener("click", () => {
-          showUniverseSelection();
-          showView("universe-view");
-        });
+        .addEventListener("click", () => openBirthdayUniverses("ready-view"));
+      document
+        .getElementById("home-adventure-button")
+        .addEventListener("click", () => openBirthdayUniverses("home-view"));
       document
         .getElementById("universe-back-to-invitation")
-        .addEventListener("click", () => showView("ready-view"));
+        .addEventListener("click", () => showView(universeReturnView));
       function showUniverseSelection() {
         stopHeartInvadersGame();
         activeBirthdayUniverse = null;

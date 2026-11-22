@@ -2358,6 +2358,29 @@
             >
               Let's celebrate your birthday, babes 💗
             </button>
+            <div class="celebrate-actions">
+              <button
+                class="secondary"
+                type="button"
+                onclick="openBirthdayGifts('birthday-start-view')"
+              >
+                Explore Your Gifts 🎁
+              </button>
+              <button
+                class="secondary"
+                type="button"
+                onclick="openBirthdayUniverses('birthday-start-view')"
+              >
+                Explore the Adventures 🚀
+              </button>
+              <button
+                class="secondary"
+                type="button"
+                onclick="openDateReady('birthday-start-view')"
+              >
+                Be Ready for the Date 💌
+              </button>
+            </div>
             <p
               class="small hidden"
               id="birthday-song-status"
@@ -2378,8 +2401,8 @@
           <div class="navline">
             <button
               class="back"
-              onclick="showView('celebrate-again-view')"
-              >← Celebrate Again</button
+              onclick="returnFromBirthdayGifts()"
+              >← Back</button
             ><span class="small">A little gift corner</span>
           </div>
           <div class="eyebrow">A few things picked just for you</div>
@@ -3098,14 +3121,14 @@
                 class="primary"
                 id="explore-birthday-gifts"
                 disabled
-                onclick="showView('gifts-view')"
+                onclick="openBirthdayGifts()"
               >
                 Explore Your Birthday Gifts 🎁
               </button>
               <button
                 class="secondary"
                 id="ready-for-surprise-button"
-                onclick="showView('ready-view')"
+                onclick="openDateReady()"
               >
                 Be Ready for the Next Surprise ✨
               </button>
@@ -3119,9 +3142,9 @@
             <button
               class="back"
               type="button"
-              onclick="showView('celebrate-again-view')"
+              onclick="returnFromDateReady()"
             >
-              ← Back to surprises
+              ← Back
             </button>
           </div>
           <div class="ready-lights" aria-hidden="true">
@@ -4187,16 +4210,37 @@ I love you endlessly, my love. Happy birthday, my favourite person! 💕🧿`,
       });
       window.addEventListener("resize", updateJourneyFromScroll);
       updateJourneyLocks();
-      function showView(id) {
+      let giftsReturnView = "celebrate-again-view";
+      let dateReturnView = "celebrate-again-view";
+      function openBirthdayGifts(returnView = "celebrate-again-view") {
+        giftsReturnView = returnView;
+        showView("gifts-view", true);
+      }
+      function returnFromBirthdayGifts() {
+        showView(giftsReturnView);
+      }
+      function openDateReady(returnView = "celebrate-again-view") {
+        dateReturnView = returnView;
+        showView("ready-view");
+      }
+      function returnFromDateReady() {
+        showView(dateReturnView);
+      }
+      function showView(id, allowJourneyBypass = false) {
         const stageIndex = journeyStages.indexOf(id);
-        if (stageIndex > journeyProgress) return;
+        if (!allowJourneyBypass && stageIndex > journeyProgress) return;
         if (
+          !allowJourneyBypass &&
           id === "memory-view" &&
           journeyProgress < journeyStages.indexOf("story-view")
         ) {
           return;
         }
-        if (id === "gifts-view" && journeyProgress < journeyStages.length) {
+        if (
+          !allowJourneyBypass &&
+          id === "gifts-view" &&
+          journeyProgress < journeyStages.length
+        ) {
           return;
         }
         document

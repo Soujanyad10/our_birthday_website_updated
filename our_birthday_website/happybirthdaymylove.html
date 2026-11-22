@@ -101,6 +101,14 @@
         box-shadow: 0 8px 22px #a64d7514;
       }
       .audio-control-panel {
+        position: fixed;
+        right: 14px;
+        bottom: 72px;
+        z-index: 119;
+        width: min(360px, calc(100vw - 28px));
+        max-height: min(420px, calc(100vh - 100px));
+        overflow-y: auto;
+        margin: 0;
         text-align: left;
       }
       .audio-control-heading {
@@ -145,10 +153,49 @@
         text-align: center;
       }
       .secret-heart-panel {
-        position: relative;
+        position: fixed;
+        left: 66px;
+        bottom: 14px;
+        z-index: 119;
+        width: min(420px, calc(100vw - 90px));
+        margin: 0;
+        border-radius: 22px 22px 22px 10px;
         color: #71334f;
         font-size: 17px;
         line-height: 1.6;
+        animation: secret-bubble-appear 0.2s ease-out;
+      }
+      .secret-heart-panel::before {
+        position: absolute;
+        bottom: 15px;
+        left: -4px;
+        width: 0;
+        height: 0;
+        border-top: 10px solid transparent;
+        border-right: 12px solid #f2cbdc;
+        border-bottom: 10px solid transparent;
+        content: "";
+      }
+      .secret-heart-panel::after {
+        position: absolute;
+        bottom: 16px;
+        left: -2px;
+        width: 0;
+        height: 0;
+        border-top: 9px solid transparent;
+        border-right: 10px solid #fff8fc;
+        border-bottom: 9px solid transparent;
+        content: "";
+      }
+      @keyframes secret-bubble-appear {
+        from {
+          transform: translateX(-6px);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
       }
       .secret-heart-panel p {
         margin: 0;
@@ -342,6 +389,838 @@
         background: #fff8fc;
         color: #71334f;
         font-size: 18px;
+      }
+      .universe-invitation-card {
+        max-width: 760px;
+        margin: 30px auto 0;
+        padding: 22px;
+        border: 1px solid #383451;
+        border-radius: 24px;
+        background: #17172a;
+        color: #f7f5ff;
+        box-shadow: 0 16px 36px #21183e2e;
+      }
+      .universe-invitation-card .eyebrow {
+        color: #d3c4ff;
+      }
+      .universe-invitation-card h2 {
+        margin: 8px 0;
+        color: #fff;
+        font: 700 clamp(20px, 3vw, 26px)/1.25 Arial, sans-serif;
+        font-style: normal;
+      }
+      .universe-invitation-card p {
+        margin: 8px 0 14px;
+        color: #ded9f7;
+      }
+      .universe-launch-button {
+        width: 100%;
+        border: 0;
+        background: #7658ca;
+        color: white;
+        font: 700 16px Arial, sans-serif;
+        letter-spacing: 0.03em;
+        box-shadow: 0 0 22px #7658ca55;
+      }
+      .universe-launch-button:hover,
+      .universe-launch-button:focus-visible {
+        background: #8969de;
+        box-shadow: 0 0 26px #a37fff88;
+      }
+      .universe-panel {
+        max-width: 1080px;
+        min-height: 72vh;
+        background:
+          radial-gradient(circle at 50% 0, #fff 0, transparent 48%),
+          #fffafc;
+      }
+      .universe-selection-heading {
+        margin: 26px auto 8px;
+        font: 800 clamp(30px, 5vw, 52px)/1.08 Arial, sans-serif;
+        font-style: normal;
+        letter-spacing: 0.045em;
+      }
+      .universe-selection-subtitle {
+        max-width: 700px;
+        margin: 0 auto 28px;
+        color: #77536a;
+        font-size: clamp(16px, 2vw, 19px);
+      }
+      .universe-cards {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+        text-align: left;
+      }
+      .universe-card {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        min-height: 320px;
+        padding: 22px;
+        overflow: hidden;
+        border: 1px solid transparent;
+        border-radius: 22px;
+        transition:
+          transform 0.22s ease,
+          box-shadow 0.22s ease;
+      }
+      .universe-card:hover {
+        transform: translateY(-5px);
+      }
+      .universe-card-icon {
+        margin-bottom: 12px;
+        font-size: 42px;
+      }
+      .universe-card h2 {
+        margin: 0 0 8px;
+        font: 750 clamp(22px, 2.8vw, 28px)/1.15 Arial, sans-serif;
+        font-style: normal;
+      }
+      .universe-card p {
+        margin: 0 0 16px;
+        line-height: 1.55;
+      }
+      .universe-card ul {
+        display: grid;
+        gap: 7px;
+        margin: 0 0 22px;
+        padding-left: 20px;
+        font: 14px/1.45 Arial, sans-serif;
+      }
+      .universe-entry {
+        width: 100%;
+        margin: auto 0 0;
+        padding: 13px 15px;
+        border: 0;
+        border-radius: 13px;
+        font: 700 14px Arial, sans-serif;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+      .universe-entry:hover,
+      .universe-entry:focus-visible {
+        transform: translateY(-2px);
+      }
+      .gamer-card {
+        border-color: #563c9c;
+        background:
+          linear-gradient(#1b1730ed, #121423f5),
+          repeating-linear-gradient(0deg, #aa7cff12 0 1px, transparent 1px 18px);
+        color: #f7f3ff;
+        box-shadow: 0 12px 30px #4934882b;
+        font-family: "Courier New", monospace;
+      }
+      .gamer-card h2 {
+        color: #e4d7ff;
+      }
+      .gamer-card .universe-entry {
+        background: #a855f7;
+        color: #fff;
+        box-shadow: 0 0 18px #a855f766;
+      }
+      .football-card {
+        border-color: #e7d59e;
+        background:
+          radial-gradient(circle at 100% 0, #f8edc8, transparent 48%),
+          linear-gradient(145deg, #fff, #f3f5fa);
+        color: #243552;
+        box-shadow: 0 12px 30px #24355215;
+      }
+      .football-card h2 {
+        color: #182b4b;
+      }
+      .football-card .universe-entry {
+        background: #d5b75c;
+        color: #152441;
+        box-shadow: 0 0 18px #d5b75c4d;
+      }
+      .biker-card {
+        border-color: #765052;
+        background:
+          radial-gradient(circle at 100% 0, #572d32, transparent 50%),
+          linear-gradient(145deg, #242427, #111114);
+        color: #f6eeee;
+        box-shadow: 0 12px 30px #17111435;
+      }
+      .biker-card h2 {
+        color: #ffd2d2;
+      }
+      .biker-card .universe-entry {
+        background: #d94b52;
+        color: white;
+        box-shadow: 0 0 18px #d94b5266;
+      }
+      .universe-play-space {
+        margin-top: 20px;
+      }
+      .universe-world {
+        --world-ink: #fff;
+        --world-accent: #a855f7;
+        padding: clamp(20px, 4vw, 38px);
+        border: 1px solid #ffffff22;
+        border-radius: 24px;
+        background: #11121d;
+        color: var(--world-ink);
+        text-align: center;
+        animation: universe-world-enter 0.4s ease-out both;
+      }
+      .universe-world[data-theme="gaming"] {
+        --world-ink: #f7f3ff;
+        --world-accent: #bd7aff;
+        border-color: #7952bd;
+        background:
+          linear-gradient(#141326e8, #101222f5),
+          repeating-linear-gradient(0deg, #a855f716 0 1px, transparent 1px 24px),
+          #101222;
+        font-family: "Courier New", monospace;
+      }
+      .universe-world[data-theme="football"] {
+        --world-ink: #1c2a43;
+        --world-accent: #ad8b32;
+        border-color: #e1cc85;
+        background:
+          radial-gradient(ellipse at 50% 0, #fff, transparent 60%),
+          linear-gradient(145deg, #f5f2e7, #e6edf2);
+      }
+      .universe-world[data-theme="biker"] {
+        --world-ink: #fff1f1;
+        --world-accent: #ff6268;
+        border-color: #774347;
+        background:
+          radial-gradient(ellipse at 50% 0, #402629, transparent 58%),
+          linear-gradient(145deg, #222226, #111114);
+      }
+      @keyframes universe-world-enter {
+        from {
+          transform: translateY(12px) scale(0.99);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0) scale(1);
+          opacity: 1;
+        }
+      }
+      .universe-world-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 24px;
+        font: 700 12px Arial, sans-serif;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .universe-world-back {
+        padding: 9px 13px;
+        border: 1px solid currentColor;
+        border-radius: 999px;
+        background: transparent;
+        color: inherit;
+        font: 700 13px Arial, sans-serif;
+      }
+      .universe-world-title {
+        margin: 12px 0;
+        color: var(--world-ink);
+        font: 800 clamp(32px, 6vw, 54px)/1.1 Arial, sans-serif;
+        font-style: normal;
+      }
+      .universe-world-welcome {
+        max-width: 680px;
+        margin: 0 auto 24px;
+        color: var(--world-ink);
+        opacity: 0.9;
+      }
+      .world-game-card {
+        max-width: 680px;
+        margin: 22px auto 0;
+        padding: clamp(16px, 3vw, 26px);
+        border: 1px solid currentColor;
+        border-color: color-mix(in srgb, var(--world-accent) 48%, transparent);
+        border-radius: 20px;
+        background: #0000001c;
+      }
+      .world-game-card h3 {
+        margin: 0 0 14px;
+        color: var(--world-ink);
+        font: 700 20px Arial, sans-serif;
+      }
+      .world-status {
+        min-height: 28px;
+        margin: 12px 0 0;
+        color: var(--world-ink);
+        font: 14px/1.5 Arial, sans-serif;
+      }
+      .world-action {
+        min-height: 46px;
+        padding: 12px 18px;
+        border: 0;
+        border-radius: 12px;
+        background: var(--world-accent);
+        color: #fff;
+        font: 700 15px Arial, sans-serif;
+        box-shadow: 0 0 18px color-mix(in srgb, var(--world-accent) 38%, transparent);
+      }
+      .world-action:disabled {
+        cursor: default;
+        opacity: 0.72;
+      }
+      .xp-track {
+        width: min(100%, 440px);
+        height: 16px;
+        margin: 12px auto;
+        overflow: hidden;
+        border: 1px solid #ffffff50;
+        border-radius: 999px;
+        background: #090a13;
+      }
+      .xp-fill {
+        width: 0;
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, #5edbff, #bf71ff);
+        box-shadow: 0 0 12px #9d5dff;
+        transition: width 0.25s ease;
+      }
+      .xp-count {
+        color: #dcd0ff;
+        font: 700 13px "Courier New", monospace;
+      }
+      .heart-invaders-panel {
+        display: grid;
+        gap: 14px;
+        color: #f7f3ff;
+        font-family: Arial, sans-serif;
+      }
+      .heart-invaders-intro {
+        margin: 0;
+        color: #e3d8ff;
+        font: 14px/1.5 Arial, sans-serif;
+      }
+      .heart-invaders-stats {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+      .heart-invaders-stat {
+        padding: 12px 8px;
+        border: 1px solid #9c68e5;
+        border-radius: 14px;
+        background: #19132d;
+      }
+      .heart-invaders-stat span,
+      .heart-invaders-stat strong {
+        display: block;
+      }
+      .heart-invaders-stat span {
+        color: #d2baff;
+        font: 700 11px Arial, sans-serif;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+      .heart-invaders-stat strong {
+        margin-top: 5px;
+        color: #fff;
+        font: 800 21px "Courier New", monospace;
+        text-shadow: 0 0 12px #c759ff80;
+      }
+      .heart-invaders-arena {
+        position: relative;
+        min-height: 300px;
+        overflow: hidden;
+        border: 1px solid #a950db;
+        border-radius: 18px;
+        background:
+          radial-gradient(circle at 20% 25%, #ee4b9220, transparent 22%),
+          radial-gradient(circle at 80% 75%, #8252ff24, transparent 25%),
+          repeating-linear-gradient(0deg, #ffffff08 0 1px, transparent 1px 28px),
+          repeating-linear-gradient(90deg, #ffffff08 0 1px, transparent 1px 28px),
+          linear-gradient(145deg, #100c20, #211137);
+        box-shadow: inset 0 0 34px #a855f733;
+        touch-action: manipulation;
+      }
+      .heart-invaders-arena::after {
+        position: absolute;
+        inset: 0;
+        border: 2px solid #e86afa24;
+        border-radius: inherit;
+        content: "";
+        pointer-events: none;
+      }
+      .heart-invaders-arena-hint {
+        position: absolute;
+        inset: 50% 12px auto;
+        transform: translateY(-50%);
+        color: #d4c2ed;
+        font: 13px/1.5 Arial, sans-serif;
+        pointer-events: none;
+      }
+      .heart-invader {
+        position: absolute;
+        z-index: 1;
+        display: grid;
+        place-items: center;
+        width: 52px;
+        height: 52px;
+        padding: 0;
+        border: 1px solid #ffffff85;
+        border-radius: 50%;
+        background: #f04e9b33;
+        font-size: 30px;
+        line-height: 1;
+        cursor: pointer;
+        filter: drop-shadow(0 0 12px #e843bf);
+        animation: heart-invader-enter 0.22s ease-out both;
+        touch-action: manipulation;
+        transition: transform 0.15s ease;
+      }
+      .heart-invader:hover,
+      .heart-invader:focus-visible {
+        transform: scale(1.16);
+        outline: 2px solid #fff;
+        outline-offset: 2px;
+      }
+      .heart-invader.purple {
+        background: #a855f733;
+        filter: drop-shadow(0 0 12px #9b54ff);
+      }
+      .heart-invader.broken {
+        border-color: #ff8296;
+        background: #d72e4b45;
+        filter: drop-shadow(0 0 13px #ff405f);
+      }
+      @keyframes heart-invader-enter {
+        from {
+          transform: scale(0.35);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+      .heart-invaders-actions {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .heart-invaders-actions .world-action {
+        min-width: 190px;
+      }
+      .heart-invaders-xp {
+        padding: 12px;
+        border: 1px solid #7853b2;
+        border-radius: 14px;
+        background: #171128;
+      }
+      .heart-invaders-xp-label {
+        color: #dfcfff;
+        font: 700 13px Arial, sans-serif;
+      }
+      .heart-invaders-result {
+        padding: 20px;
+        border: 1px solid #d65bfa;
+        border-radius: 18px;
+        background:
+          radial-gradient(circle at 50% 0, #9b45c244, transparent 60%),
+          #100c1e;
+        box-shadow: 0 0 25px #a641ce3b;
+      }
+      .heart-invaders-result h4 {
+        margin: 0 0 12px;
+        color: #ffd2f1;
+        font: 800 clamp(19px, 3vw, 25px)/1.25 Arial, sans-serif;
+      }
+      .heart-invaders-result-message {
+        margin: 0 auto 12px;
+        color: #fff;
+        font: 700 16px/1.6 Arial, sans-serif;
+      }
+      .heart-invaders-award {
+        margin: 10px 0;
+        color: #f1c6ff;
+        font: 800 14px Arial, sans-serif;
+        letter-spacing: 0.06em;
+      }
+      .heart-invaders-status {
+        min-height: 24px;
+        margin: 0;
+        color: #e7d9ff;
+        font: 13px/1.5 Arial, sans-serif;
+      }
+      .football-stadium {
+        position: relative;
+        width: min(100%, 540px);
+        height: clamp(300px, 66vw, 360px);
+        min-height: 300px;
+        margin: 0 auto 16px;
+        overflow: hidden;
+        border: 6px solid #d5b75c;
+        border-radius: 18px;
+        background:
+          linear-gradient(180deg, #112a4a 0 25%, transparent 25%),
+          repeating-linear-gradient(90deg, #338453 0 54px, #2d7549 54px 108px);
+        box-shadow: inset 0 0 0 2px #fff8, 0 10px 24px #08172944;
+        touch-action: pan-y;
+        overscroll-behavior: contain;
+      }
+      .football-stadium::before {
+        position: absolute;
+        inset: 24% 15% 10%;
+        border: 2px solid #ffffffbc;
+        border-bottom: 0;
+        border-radius: 50% 50% 0 0;
+        content: "";
+      }
+      .football-goal {
+        position: absolute;
+        top: 14px;
+        left: 50%;
+        display: grid;
+        place-items: center;
+        width: min(180px, 58%);
+        height: 94px;
+        box-sizing: border-box;
+        transform: translateX(-50%);
+        border: 4px solid #fff;
+        background:
+          repeating-linear-gradient(90deg, #ffffff35 0 2px, transparent 2px 12px),
+          repeating-linear-gradient(0deg, #ffffff35 0 2px, transparent 2px 10px);
+        color: #fff;
+        z-index: 2;
+      }
+      .football-goal.goal-scored {
+        animation: football-net-hit 650ms ease-out;
+      }
+      @keyframes football-net-hit {
+        0%,
+        100% {
+          transform: translateX(-50%) skewX(0);
+        }
+        35% {
+          transform: translateX(-50%) skewX(-5deg) scaleY(0.94);
+          filter: brightness(1.3);
+        }
+        65% {
+          transform: translateX(-50%) skewX(4deg) scaleY(1.03);
+        }
+      }
+      .football-trajectory {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+        pointer-events: none;
+        z-index: 1;
+      }
+      .football-trajectory path {
+        fill: none;
+        stroke: #ffe58a;
+        stroke-dasharray: 6 6;
+        stroke-linecap: round;
+        stroke-width: 3;
+        filter: drop-shadow(0 0 4px #d4ae44);
+      }
+      #football-aim-arrow path {
+        fill: #ffe58a;
+        stroke: none;
+        filter: none;
+      }
+      .football-ball {
+        position: absolute;
+        bottom: 76px;
+        left: 50%;
+        display: grid;
+        place-items: center;
+        width: 46px;
+        height: 46px;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: inherit;
+        font: 38px/1 Arial, sans-serif;
+        transform: translate(-50%, 50%);
+        transition:
+          left 280ms ease,
+          top 280ms ease,
+          bottom 280ms ease,
+          transform 280ms ease,
+          filter 180ms ease;
+        cursor: grab;
+        touch-action: none;
+        user-select: none;
+        -webkit-user-select: none;
+        z-index: 3;
+      }
+      .football-ball:focus-visible {
+        border-radius: 50%;
+        outline: 3px solid #ffe58a;
+        outline-offset: 3px;
+      }
+      .football-ball.is-dragging {
+        filter: drop-shadow(0 0 10px #ffe58a);
+        transition: none;
+        cursor: grabbing;
+      }
+      .football-ball.is-flight,
+      .football-ball.is-returning {
+        transition: none;
+        pointer-events: none;
+      }
+      .football-power-indicator {
+        position: absolute;
+        right: 12px;
+        bottom: 12px;
+        width: min(150px, 42%);
+        padding: 8px 10px;
+        border: 1px solid #fff9;
+        border-radius: 10px;
+        background: #10233de8;
+        color: #fff;
+        font: 800 11px/1.2 Arial, sans-serif;
+        letter-spacing: 0.06em;
+        pointer-events: none;
+        z-index: 4;
+      }
+      .football-power-track {
+        height: 6px;
+        margin-top: 6px;
+        overflow: hidden;
+        border-radius: 99px;
+        background: #ffffff4d;
+      }
+      .football-power-fill {
+        display: block;
+        width: 0;
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, #f8f5e9, #d5b75c);
+        transition: width 80ms linear;
+      }
+      .football-goalkeeper {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 50px;
+        height: 66px;
+        transform: translateX(-50%);
+        transform-origin: 50% 80%;
+        transition: transform 390ms cubic-bezier(0.2, 0.7, 0.3, 1);
+        z-index: 2;
+      }
+      .football-goalkeeper-head {
+        position: absolute;
+        top: 1px;
+        left: 50%;
+        width: 17px;
+        height: 17px;
+        transform: translateX(-50%);
+        border: 2px solid #fff;
+        border-radius: 50%;
+        background: #d99a68;
+      }
+      .football-goalkeeper-body {
+        position: absolute;
+        top: 18px;
+        left: 50%;
+        width: 25px;
+        height: 31px;
+        transform: translateX(-50%);
+        border: 2px solid #fff;
+        border-radius: 8px 8px 4px 4px;
+        background: #173c70;
+      }
+      .football-goalkeeper-body::after {
+        position: absolute;
+        bottom: -16px;
+        left: 3px;
+        width: 15px;
+        height: 16px;
+        border-left: 5px solid #132747;
+        border-right: 5px solid #132747;
+        content: "";
+      }
+      .football-goalkeeper-arm {
+        position: absolute;
+        top: 23px;
+        width: 26px;
+        height: 8px;
+        border-radius: 99px;
+        background: #173c70;
+        transform-origin: 4px 50%;
+        transition: transform 390ms ease;
+      }
+      .football-goalkeeper-arm.left {
+        left: 2px;
+        transform: rotate(22deg);
+      }
+      .football-goalkeeper-arm.right {
+        right: 2px;
+        transform-origin: calc(100% - 4px) 50%;
+        transform: rotate(-22deg);
+      }
+      .football-goalkeeper-glove {
+        position: absolute;
+        top: -4px;
+        font: 17px/1 Arial, sans-serif;
+      }
+      .football-goalkeeper-arm.left .football-goalkeeper-glove {
+        left: -9px;
+      }
+      .football-goalkeeper-arm.right .football-goalkeeper-glove {
+        right: -9px;
+      }
+      .football-goalkeeper[data-dive="left"] {
+        transform: translateX(calc(-50% - 30px)) rotate(-42deg) scale(1.04);
+      }
+      .football-goalkeeper[data-dive="left"] .football-goalkeeper-arm.left {
+        transform: rotate(-58deg);
+      }
+      .football-goalkeeper[data-dive="left"] .football-goalkeeper-arm.right {
+        transform: rotate(12deg);
+      }
+      .football-goalkeeper[data-dive="right"] {
+        transform: translateX(calc(-50% + 30px)) rotate(42deg) scale(1.04);
+      }
+      .football-goalkeeper[data-dive="right"] .football-goalkeeper-arm.left {
+        transform: rotate(-12deg);
+      }
+      .football-goalkeeper[data-dive="right"] .football-goalkeeper-arm.right {
+        transform: rotate(58deg);
+      }
+      .football-goalkeeper[data-dive="center"] {
+        transform: translateX(-50%) translateY(-12px) scale(1.12);
+      }
+      .football-goalkeeper[data-dive="center"] .football-goalkeeper-arm.left {
+        transform: rotate(-48deg);
+      }
+      .football-goalkeeper[data-dive="center"] .football-goalkeeper-arm.right {
+        transform: rotate(48deg);
+      }
+      .biker-controls {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .football-instructions {
+        margin: 0 auto 12px;
+        color: #1c2a43;
+        font: 600 14px/1.5 Arial, sans-serif;
+      }
+      .football-score {
+        color: #1c2a43;
+        font: 800 17px Arial, sans-serif;
+      }
+      .football-champion-mark {
+        margin: 10px auto;
+        font-size: 56px;
+        filter: drop-shadow(0 5px 8px #ad8b3270);
+      }
+      .biker-road {
+        position: relative;
+        width: min(100%, 500px);
+        height: 250px;
+        margin: 0 auto 16px;
+        overflow: hidden;
+        border: 3px solid #66636a;
+        border-radius: 18px;
+        background:
+          linear-gradient(90deg, transparent 32.8%, #ffffff7c 33%, transparent 33.7%, transparent 66%, #ffffff7c 66.3%, transparent 67%),
+          repeating-linear-gradient(180deg, #303035 0 28px, #29292e 28px 56px);
+        box-shadow: inset 0 0 30px #0009;
+      }
+      .biker-road::before {
+        position: absolute;
+        inset: 0 auto 0 50%;
+        width: 5px;
+        transform: translateX(-50%);
+        background: repeating-linear-gradient(180deg, #eee 0 22px, transparent 22px 42px);
+        content: "";
+        opacity: 0.7;
+      }
+      .biker-road-hazard,
+      .biker-rider {
+        position: absolute;
+        left: 50%;
+        z-index: 1;
+        display: grid;
+        place-items: center;
+        width: 64px;
+        height: 54px;
+        transform: translateX(-50%);
+        font-size: 38px;
+        transition:
+          left 0.2s ease,
+          top 0.22s ease;
+      }
+      .biker-road-hazard {
+        top: 35px;
+        filter: drop-shadow(0 0 8px #ff695a);
+      }
+      .biker-rider {
+        bottom: 14px;
+        font-size: 44px;
+        filter: drop-shadow(0 0 9px #ff535399);
+      }
+      .biker-controls {
+        align-items: center;
+      }
+      .biker-controls .world-action {
+        min-width: 120px;
+      }
+      .biker-readout {
+        color: #ffd7d7;
+        font: 700 14px Arial, sans-serif;
+      }
+      .universe-shared-ending {
+        margin-top: 18px;
+      }
+      .universe-award {
+        display: inline-block;
+        margin: 10px auto;
+        padding: 9px 15px;
+        border: 1px solid var(--world-accent);
+        border-radius: 999px;
+        color: var(--world-ink);
+        font: 700 13px Arial, sans-serif;
+      }
+      .universe-ending-title {
+        max-width: 760px;
+        margin: 18px auto;
+        color: var(--world-ink);
+        font: 750 clamp(25px, 4.5vw, 40px)/1.2 Arial, sans-serif;
+      }
+      .universe-ending-birthday {
+        color: var(--world-ink);
+        font: 700 20px Arial, sans-serif;
+      }
+      .universe-ending-actions {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 22px;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .universe-world,
+        .universe-card,
+        .universe-entry,
+        .universe-launch-button,
+        .xp-fill,
+        .heart-invader,
+        .football-ball,
+        .football-goalkeeper,
+        .football-goalkeeper-arm,
+        .football-goal.goal-scored,
+        .biker-road-hazard,
+        .biker-rider {
+          animation: none;
+          transition: none;
+        }
       }
       .eyebrow {
         font: 700 10px Arial;
@@ -1093,6 +1972,13 @@
         max-width: 580px;
         margin: 0 auto;
       }
+      .memory-navigation {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 24px;
+      }
       .event h3 {
         margin: 0 0 6px;
         font-size: 20px;
@@ -1291,6 +2177,45 @@
         }
         .meeting-details {
           grid-template-columns: 1fr;
+        }
+        .universe-invitation-card {
+          padding: 18px;
+        }
+        .universe-cards {
+          grid-template-columns: 1fr;
+        }
+        .universe-card {
+          min-height: 0;
+        }
+        .universe-world-nav {
+          align-items: flex-start;
+        }
+        .biker-controls {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .heart-invaders-stats {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 6px;
+        }
+        .heart-invaders-stat {
+          padding: 10px 4px;
+        }
+        .heart-invaders-stat span {
+          font-size: 9px;
+        }
+        .heart-invaders-stat strong {
+          font-size: 18px;
+        }
+        .heart-invaders-arena {
+          min-height: 300px;
+        }
+        .heart-invaders-actions {
+          display: grid;
+          grid-template-columns: 1fr;
+        }
+        .heart-invaders-actions .world-action {
+          width: 100%;
         }
       }
     </style>
@@ -1784,6 +2709,22 @@
           <p class="small" id="memory-placeholder">
             Add this date's photo and message in its CONFIG.milestones entry.
           </p>
+          <div class="memory-navigation">
+            <button
+              class="secondary"
+              id="memory-back-button"
+              type="button"
+            >
+              ← Back to Our Story
+            </button>
+            <button
+              class="primary"
+              id="memory-continue-button"
+              type="button"
+            >
+              Continue →
+            </button>
+          </div>
         </div>
       </section>
       <section class="view" id="balloon-view">
@@ -2261,6 +3202,413 @@
           >
             Replay the Birthday Journey 💗
           </button>
+          <div class="universe-invitation-card">
+            <div class="eyebrow">ONE MORE THING, BIRTHDAY BOY! 👀</div>
+            <h2>CHOOSE YOUR UNIVERSE</h2>
+            <p>Ready to enter your next adventure?</p>
+            <button
+              class="universe-launch-button"
+              id="open-birthday-universes"
+              type="button"
+            >
+              LET'S GO! 🚀
+            </button>
+          </div>
+        </div>
+      </section>
+      <section class="view" id="universe-view">
+        <div class="panel universe-panel">
+          <div id="universe-selection">
+            <div class="navline">
+              <button
+                class="back"
+                id="universe-back-to-invitation"
+                type="button"
+              >
+                ← Back to the invitation
+              </button>
+            </div>
+            <div class="eyebrow">ONE BIRTHDAY BOY · THREE ADVENTURES</div>
+            <h1 class="universe-selection-heading">
+              CHOOSE YOUR BIRTHDAY UNIVERSE
+            </h1>
+            <p class="universe-selection-subtitle">
+              Three worlds. One birthday boy. Endless adventures. Which world
+              are we entering today?
+            </p>
+            <div class="universe-cards">
+              <article class="universe-card gamer-card">
+                <div class="universe-card-icon" aria-hidden="true">🎮</div>
+                <h2>Player 1: Subho</h2>
+                <p>Level up, birthday boy!</p>
+                <ul>
+                  <li>Collect hearts and earn birthday XP</li>
+                  <li>Unlock your Birthday Legend achievement</li>
+                  <li>Neon-powered, pixel-inspired fun</li>
+                </ul>
+                <button
+                  class="universe-entry"
+                  type="button"
+                  data-universe-choice="gaming"
+                >
+                  Enter Gaming World
+                </button>
+              </article>
+              <article class="universe-card football-card">
+                <div class="universe-card-icon" aria-hidden="true">⚽</div>
+                <h2>¡Hala Madrid!</h2>
+                <p>The birthday champion has entered the stadium!</p>
+                <ul>
+                  <li>Swipe the ball to aim and shoot five penalties</li>
+                  <li>Beat the keeper and run up your score</li>
+                  <li>Celebrate with a birthday trophy</li>
+                </ul>
+                <button
+                  class="universe-entry"
+                  type="button"
+                  data-universe-choice="football"
+                >
+                  Enter Football World
+                </button>
+              </article>
+              <article class="universe-card biker-card">
+                <div class="universe-card-icon" aria-hidden="true">🏍️</div>
+                <h2>Born to Ride</h2>
+                <p>Every adventure begins with you.</p>
+                <ul>
+                  <li>Switch lanes to avoid road hazards</li>
+                  <li>Ride eight stages to your destination</li>
+                  <li>Race toward your birthday sunset</li>
+                </ul>
+                <button
+                  class="universe-entry"
+                  type="button"
+                  data-universe-choice="biker"
+                >
+                  Enter Biker World
+                </button>
+              </article>
+            </div>
+          </div>
+          <div class="universe-play-space hidden" id="universe-play-space">
+            <section
+              class="universe-world hidden"
+              id="universe-world-screen"
+              aria-live="polite"
+            >
+              <div class="universe-world-nav">
+                <button
+                  class="universe-world-back"
+                  type="button"
+                  data-universe-home
+                >
+                  ← All universes
+                </button>
+                <span id="universe-world-label">WORLD</span>
+              </div>
+              <div class="hidden" id="gaming-world">
+                <div class="universe-card-icon" aria-hidden="true">🎮</div>
+                <h2 class="universe-world-title">Player 1: Subho</h2>
+                <p class="universe-world-welcome">
+                  Welcome, birthday player! Collect ten pink or purple hearts
+                  and avoid broken hearts before the 10-second countdown ends.
+                </p>
+                <div class="world-game-card heart-invaders-panel">
+                  <h3>Heart Invaders</h3>
+                  <p class="heart-invaders-intro">
+                    Tap pink or purple hearts for 10 points each. Avoid broken
+                    hearts: each one costs 10 points, and your score can go
+                    below zero!
+                  </p>
+                  <div class="heart-invaders-stats">
+                    <div class="heart-invaders-stat">
+                      <span>Score (pts)</span>
+                      <strong id="heart-invaders-score" aria-live="polite"
+                        >0</strong
+                      >
+                    </div>
+                    <div class="heart-invaders-stat">
+                      <span>Time</span>
+                      <strong
+                        id="heart-invaders-time"
+                        role="timer"
+                        aria-label="10 seconds remaining"
+                        >10s</strong
+                      >
+                    </div>
+                    <div class="heart-invaders-stat">
+                      <span>Hearts</span>
+                      <strong id="heart-invaders-count" aria-live="polite"
+                        >0 / 10</strong
+                      >
+                    </div>
+                  </div>
+                  <div
+                    class="heart-invaders-arena"
+                    id="heart-invaders-arena"
+                    role="region"
+                    aria-label="Heart Invaders game area"
+                  >
+                    <p class="heart-invaders-arena-hint" id="heart-invaders-hint">
+                      Press Start Game to begin your 10-second mission.
+                    </p>
+                  </div>
+                  <p
+                    class="heart-invaders-status"
+                    id="heart-invaders-status"
+                    role="status"
+                  >
+                    Ready, Player 1? Collect 10 hearts to win!
+                  </p>
+                  <button
+                    class="world-action"
+                    id="heart-invaders-start"
+                    type="button"
+                  >
+                    Start Game
+                  </button>
+                  <div class="heart-invaders-xp">
+                    <div class="heart-invaders-xp-label">
+                      Birthday XP earned
+                    </div>
+                    <div
+                      class="xp-track"
+                      id="heart-invaders-xp-track"
+                      role="progressbar"
+                      aria-label="Birthday XP earned"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-valuenow="0"
+                    >
+                      <div class="xp-fill" id="heart-invaders-xp-fill"></div>
+                    </div>
+                    <div class="xp-count" id="heart-invaders-xp-count">
+                      0 / 100 XP
+                    </div>
+                  </div>
+                  <section
+                    class="heart-invaders-result hidden"
+                    id="heart-invaders-result"
+                    aria-live="polite"
+                  >
+                    <h4 id="heart-invaders-result-title"></h4>
+                    <p
+                      class="heart-invaders-result-message"
+                      id="heart-invaders-result-message"
+                    ></p>
+                    <p
+                      class="heart-invaders-award hidden"
+                      id="heart-invaders-award"
+                    >
+                      100 Birthday XP awarded!
+                    </p>
+                    <div class="heart-invaders-actions">
+                      <button
+                        class="world-action hidden"
+                        id="heart-invaders-retry"
+                        type="button"
+                      >
+                        Try Again
+                      </button>
+                      <button
+                        class="world-action hidden"
+                        id="heart-invaders-continue"
+                        type="button"
+                      >
+                        Continue to our birthday finale 💗
+                      </button>
+                    </div>
+                  </section>
+                </div>
+              </div>
+              <div class="hidden" id="football-world">
+                <div class="universe-card-icon" aria-hidden="true">⚽</div>
+                <h2 class="universe-world-title">¡Hala Madrid!</h2>
+                <p class="universe-world-welcome">
+                  The birthday champion has entered the stadium! Drag the ball
+                  backward to power your shot and move left or right to aim.
+                  Take five shots on goal.
+                </p>
+                <div class="world-game-card">
+                  <div
+                    class="football-stadium"
+                    id="football-stadium"
+                    role="group"
+                    aria-label="Football penalty shootout. Drag the ball backward to aim and shoot."
+                  >
+                    <div class="football-goal" id="football-goal">
+                      <span
+                        class="football-goalkeeper"
+                        id="football-goalkeeper"
+                        aria-hidden="true"
+                      >
+                        <span class="football-goalkeeper-head"></span>
+                        <span class="football-goalkeeper-body"></span>
+                        <span class="football-goalkeeper-arm left">
+                          <span class="football-goalkeeper-glove">🧤</span>
+                        </span>
+                        <span class="football-goalkeeper-arm right">
+                          <span class="football-goalkeeper-glove">🧤</span>
+                        </span>
+                      </span>
+                    </div>
+                    <svg
+                      class="football-trajectory"
+                      id="football-trajectory"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <defs>
+                        <marker
+                          id="football-aim-arrow"
+                          markerWidth="8"
+                          markerHeight="8"
+                          refX="7"
+                          refY="4"
+                          orient="auto"
+                        >
+                          <path d="M0,0 L8,4 L0,8 Z"></path>
+                        </marker>
+                      </defs>
+                      <path
+                        id="football-trajectory-path"
+                        marker-end="url(#football-aim-arrow)"
+                      ></path>
+                    </svg>
+                    <button
+                      class="football-ball"
+                      id="football-ball"
+                      type="button"
+                      aria-label="Drag backward to aim and shoot the football. Keyboard: use arrows to aim and set power, then press Space or Enter."
+                      draggable="false"
+                    >
+                      ⚽
+                    </button>
+                    <div
+                      class="football-power-indicator hidden"
+                      id="football-power-indicator"
+                      role="meter"
+                      aria-label="Shot power"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-valuenow="0"
+                    >
+                      <span id="football-power-label">POWER 0%</span>
+                      <div class="football-power-track">
+                        <span
+                          class="football-power-fill"
+                          id="football-power-fill"
+                        ></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="football-score" id="football-score">
+                    Goals: 0 · Shots: 0 / 5
+                  </div>
+                  <p class="football-instructions">
+                    Hold the ball, drag it backward to build power, then pull
+                    slightly left or right to aim. Release to shoot. Keyboard:
+                    arrows aim and set power; Space or Enter shoots.
+                  </p>
+                  <p class="world-status" id="football-status" role="status">
+                    Five shots. Make every birthday moment count!
+                  </p>
+                </div>
+              </div>
+              <div class="hidden" id="biker-world">
+                <div class="universe-card-icon" aria-hidden="true">🏍️</div>
+                <h2 class="universe-world-title">Born to Ride</h2>
+                <p class="universe-world-welcome">
+                  Your birthday ride is waiting, Subho. Dodge the road hazards
+                  and reach the destination.
+                </p>
+                <div class="world-game-card">
+                  <div
+                    class="biker-road"
+                    id="biker-road"
+                    aria-label="Three-lane road with motorcycle and obstacles"
+                  >
+                    <span
+                      class="biker-road-hazard"
+                      id="biker-road-hazard"
+                      aria-hidden="true"
+                      >🚧</span
+                    >
+                    <span class="biker-rider" id="biker-rider" aria-hidden="true"
+                      >🏍️</span
+                    >
+                  </div>
+                  <div class="biker-readout" id="biker-readout">
+                    Distance: 0 / 8 km · Lives: 3
+                  </div>
+                  <p class="world-status" id="biker-status" role="status">
+                    Change lanes to avoid the hazard, then ride ahead.
+                  </p>
+                  <div class="biker-controls">
+                    <button
+                      class="world-action"
+                      id="biker-left-button"
+                      type="button"
+                    >
+                      ← Left lane
+                    </button>
+                    <button
+                      class="world-action"
+                      id="biker-ride-button"
+                      type="button"
+                    >
+                      Ride ahead
+                    </button>
+                    <button
+                      class="world-action"
+                      id="biker-right-button"
+                      type="button"
+                    >
+                      Right lane →
+                    </button>
+                  </div>
+                  <p class="world-status">
+                    Keyboard: use ← / → to change lanes and Space to ride.
+                  </p>
+                </div>
+              </div>
+            </section>
+            <section
+              class="universe-world universe-shared-ending hidden"
+              id="universe-shared-ending"
+              aria-live="polite"
+            >
+              <div class="universe-card-icon" id="universe-ending-icon" aria-hidden="true">
+                🎉
+              </div>
+              <div class="universe-award" id="universe-award"></div>
+              <h2 class="universe-world-title" id="universe-result-title"></h2>
+              <p class="universe-world-welcome" id="universe-result-message"></p>
+              <p class="universe-ending-title">
+                No matter which world you choose, my favourite universe will
+                always be the one where you're in it.
+              </p>
+              <p class="universe-ending-birthday">
+                Happy Birthday, my love. ❤️
+              </p>
+              <div class="universe-ending-actions">
+                <button
+                  class="universe-world-back"
+                  id="universe-explore-again"
+                  type="button"
+                >
+                  Explore another universe
+                </button>
+                <button
+                  class="world-action"
+                  id="universe-back-to-romantic-world"
+                  type="button"
+                >
+                  Back to Our Little World 💗
+                </button>
+              </div>
+            </section>
+          </div>
         </div>
       </section>
       <footer id="site-footer">Made with all my love · Happy Birthday ❤️</footer>
@@ -2428,7 +3776,7 @@ I love you endlessly, my love. Happy birthday, my favourite person! 💕🧿`,
           try {
             const source = context.createMediaElementSource(record.audio);
             record.gainNode = context.createGain();
-            record.gainNode.gain.value = record.gain;
+            record.gainNode.gain.value = record.gain * record.fade;
             source.connect(record.gainNode).connect(
               record.channel === "music" ? musicBus : effectsBus,
             );
@@ -2447,7 +3795,7 @@ I love you endlessly, my love. Happy birthday, my favourite person! 💕🧿`,
           }
           records.forEach((record) => {
             if (record.gainNode) {
-              record.gainNode.gain.value = record.gain;
+              record.gainNode.gain.value = record.gain * record.fade;
               record.audio.volume = 1;
               record.audio.muted = false;
             } else {
@@ -2457,7 +3805,7 @@ I love you endlessly, my love. Happy birthday, my favourite person! 💕🧿`,
                 1,
                 (settings.muted ? 0 : settings.master) *
                   channelVolume *
-                  record.gain,
+                  record.gain * record.fade,
               );
               record.audio.muted = false;
             }
@@ -2530,6 +3878,8 @@ I love you endlessly, my love. Happy birthday, my favourite person! 💕🧿`,
               audio,
               channel,
               gain: settingsForAudio.gain || 1,
+              fade: 1,
+              fadeTimer: null,
               gainNode: null,
               wantsToPlay: false,
             };
@@ -2551,6 +3901,9 @@ I love you endlessly, my love. Happy birthday, my favourite person! 💕🧿`,
               throw new Error("Background music was used before registration.");
             }
             record.wantsToPlay = true;
+            window.clearInterval(record.fadeTimer);
+            record.fadeTimer = null;
+            record.fade = 1;
             return play(audio);
           },
           pauseBackground(audio) {
@@ -2559,7 +3912,35 @@ I love you endlessly, my love. Happy birthday, my favourite person! 💕🧿`,
               throw new Error("Background music was used before registration.");
             }
             record.wantsToPlay = false;
+            window.clearInterval(record.fadeTimer);
+            record.fadeTimer = null;
+            record.fade = 1;
+            applyVolumes();
             audio.pause();
+          },
+          fadeBackground(audio, duration) {
+            const record = records.get(audio);
+            if (!record || !backgroundTracks.has(audio)) {
+              throw new Error("Background music was used before registration.");
+            }
+            if (!Number.isFinite(duration) || duration <= 0) {
+              throw new Error("Background music fade duration must be positive.");
+            }
+            window.clearInterval(record.fadeTimer);
+            record.fade = 1;
+            const fadeStartedAt = performance.now();
+            record.fadeTimer = window.setInterval(() => {
+              const progress = Math.min(
+                1,
+                (performance.now() - fadeStartedAt) / duration,
+              );
+              record.fade = 1 - progress;
+              applyVolumes();
+              if (progress === 1) {
+                window.clearInterval(record.fadeTimer);
+                record.fadeTimer = null;
+              }
+            }, 40);
           },
           playSpecial(audio) {
             if (!records.has(audio)) {
@@ -2605,12 +3986,6 @@ I love you endlessly, my love. Happy birthday, my favourite person! 💕🧿`,
         "audio-control-toggle",
       );
       const secretHeartToggle = document.getElementById("secret-heart-toggle");
-      function movePanelToActiveView(panel) {
-        const activePanel = document.querySelector(".view.active .panel");
-        if (activePanel && panel.parentElement !== activePanel) {
-          activePanel.prepend(panel);
-        }
-      }
       function closeAudioSettings() {
         audioSettingsPanel.classList.add("hidden");
         audioSettingsToggle.setAttribute("aria-expanded", "false");
@@ -2634,7 +4009,6 @@ I love you endlessly, my love. Happy birthday, my favourite person! 💕🧿`,
           return;
         }
         closeOther();
-        movePanelToActiveView(panel);
         panel.classList.remove("hidden");
         toggle.setAttribute("aria-expanded", "true");
         toggle.setAttribute(
@@ -2643,7 +4017,6 @@ I love you endlessly, my love. Happy birthday, my favourite person! 💕🧿`,
             ? "Close audio controls"
             : "Close your secret message",
         );
-        panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
       }
       audioSettingsToggle.addEventListener("click", () =>
         toggleInlinePanel(
@@ -2827,12 +4200,6 @@ I love you endlessly, my love. Happy birthday, my favourite person! 💕🧿`,
           .querySelectorAll(".view")
           .forEach((v) => v.classList.remove("active"));
         document.getElementById(id).classList.add("active");
-        if (!audioSettingsPanel.classList.contains("hidden")) {
-          movePanelToActiveView(audioSettingsPanel);
-        }
-        if (!secretHeartPanel.classList.contains("hidden")) {
-          movePanelToActiveView(secretHeartPanel);
-        }
         document.getElementById("site-footer").textContent =
           id === "home-view"
             ? "Made with all my love · Happy Birthday ❤️"
@@ -2847,7 +4214,12 @@ I love you endlessly, my love. Happy birthday, my favourite person! 💕🧿`,
           updateJourneyFromScroll();
         });
       }
+      let currentMilestoneIndex = -1;
       function openMilestone(milestone) {
+        currentMilestoneIndex = CONFIG.milestones.indexOf(milestone);
+        if (currentMilestoneIndex < 0) {
+          throw new Error("Cannot open a milestone that is not in CONFIG.");
+        }
         const hasImage = Boolean(milestone.detailImage);
         const hasText = Boolean(milestone.detailText);
         const image = document.getElementById("memory-image");
@@ -2867,8 +4239,26 @@ I love you endlessly, my love. Happy birthday, my favourite person! 💕🧿`,
           image.removeAttribute("src");
         }
         note.textContent = milestone.detailText || "";
+        const nextMilestone = CONFIG.milestones[currentMilestoneIndex + 1];
+        document.getElementById("memory-continue-button").textContent =
+          nextMilestone
+            ? `Continue to ${nextMilestone.date} →`
+            : "Return to Our Story →";
         showView("memory-view");
       }
+      document
+        .getElementById("memory-back-button")
+        .addEventListener("click", () => showView("story-view"));
+      document
+        .getElementById("memory-continue-button")
+        .addEventListener("click", () => {
+          const nextMilestone = CONFIG.milestones[currentMilestoneIndex + 1];
+          if (nextMilestone) {
+            openMilestone(nextMilestone);
+          } else {
+            showView("story-view");
+          }
+        });
       const puzzleBoard = document.getElementById("puzzle-board");
       const puzzleStatus = document.getElementById("puzzle-status");
       const puzzleCompleteImage =
@@ -3088,6 +4478,9 @@ I love you endlessly, my love. Happy birthday, my favourite person! 💕🧿`,
       document.getElementById("letter-text").textContent = CONFIG.letter;
       const ourSong = document.getElementById("our-song");
       let momentsSongTimeout;
+      let momentsSongFadeTimeout;
+      const momentsSongDuration = 15_000;
+      const momentsSongFadeDuration = 3_000;
       if (typeof CONFIG.songFile === "string" && CONFIG.songFile.trim()) {
         ourSong.src = CONFIG.songFile
           .split("/")
@@ -3101,6 +4494,39 @@ I love you endlessly, my love. Happy birthday, my favourite person! 💕🧿`,
       const applauseSound = document.getElementById("applause-sound");
       applauseSound.src = CONFIG.applauseSoundFile;
       audioController.register(applauseSound, "effects");
+      let footballGoalCheerTimeout = 0;
+      let footballGoalCheerRequest = 0;
+      let footballGoalCheerActive = false;
+      function stopFootballGoalCheer() {
+        footballGoalCheerRequest++;
+        window.clearTimeout(footballGoalCheerTimeout);
+        footballGoalCheerTimeout = 0;
+        if (footballGoalCheerActive) applauseSound.pause();
+        footballGoalCheerActive = false;
+      }
+      function playFootballGoalCheer() {
+        const request = ++footballGoalCheerRequest;
+        window.clearTimeout(footballGoalCheerTimeout);
+        footballGoalCheerTimeout = 0;
+        applauseSound.pause();
+        footballGoalCheerActive = true;
+        audioController
+          .restart(applauseSound, 0)
+          .then(() => {
+            if (request !== footballGoalCheerRequest) return;
+            footballGoalCheerTimeout = window.setTimeout(() => {
+              if (request !== footballGoalCheerRequest) return;
+              applauseSound.pause();
+              footballGoalCheerTimeout = 0;
+              footballGoalCheerActive = false;
+            }, 900);
+          })
+          .catch((error) => {
+            if (request !== footballGoalCheerRequest) return;
+            footballGoalCheerActive = false;
+            console.error("Could not play the football goal cheer.", error);
+          });
+      }
       const giftUnwrapSound =
         document.getElementById("gift-unwrap-sound");
       giftUnwrapSound.src = CONFIG.giftUnwrapSoundFile
@@ -4122,6 +5548,7 @@ I love you endlessly, my love. Happy birthday, my favourite person! 💕🧿`,
 
           if (!ourSong.paused) {
             window.clearTimeout(momentsSongTimeout);
+            window.clearTimeout(momentsSongFadeTimeout);
             audioController.pauseBackground(ourSong);
             status.classList.remove("hidden");
             status.textContent = "♪ Paused";
@@ -4134,12 +5561,19 @@ I love you endlessly, my love. Happy birthday, my favourite person! 💕🧿`,
               journeyActions.momentsPlayed = true;
               updateJourneyFromScroll();
               window.clearTimeout(momentsSongTimeout);
+              window.clearTimeout(momentsSongFadeTimeout);
+              momentsSongFadeTimeout = window.setTimeout(() => {
+                audioController.fadeBackground(
+                  ourSong,
+                  momentsSongFadeDuration,
+                );
+              }, momentsSongDuration - momentsSongFadeDuration);
               momentsSongTimeout = window.setTimeout(() => {
                 audioController.pauseBackground(ourSong);
                 ourSong.currentTime = 0;
-                status.textContent = "♪ Song paused after 10 seconds";
+                status.textContent = "♪ Song paused after 15 seconds";
                 button.textContent = "Play me ♬";
-              }, 10_000);
+              }, momentsSongDuration);
             }
             button.textContent = started
               ? "Pause our song ⏸"
@@ -4177,7 +5611,1166 @@ I love you endlessly, my love. Happy birthday, my favourite person! 💕🧿`,
             .getElementById("replay-journey-button")
             .classList.remove("hidden");
         });
+      const universeSelection = document.getElementById("universe-selection");
+      const universePlaySpace = document.getElementById("universe-play-space");
+      const universeWorldScreen = document.getElementById(
+        "universe-world-screen",
+      );
+      const universeSharedEnding = document.getElementById(
+        "universe-shared-ending",
+      );
+      let activeBirthdayUniverse = null;
+      let footballGoals = 0;
+      let footballShots = 0;
+      let footballShotInProgress = false;
+      let footballPointerDrag = null;
+      let footballKeyboardAimRatio = 0;
+      let footballKeyboardPower = 0.75;
+      let footballAnimationFrame = 0;
+      let footballCompletionTimeout = 0;
+      const footballStadium = document.getElementById("football-stadium");
+      const footballGoal = document.getElementById("football-goal");
+      const footballKeeper = document.getElementById("football-goalkeeper");
+      const footballBall = document.getElementById("football-ball");
+      const footballTrajectory = document.getElementById(
+        "football-trajectory",
+      );
+      const footballTrajectoryPath = document.getElementById(
+        "football-trajectory-path",
+      );
+      const footballPowerIndicator = document.getElementById(
+        "football-power-indicator",
+      );
+      const footballPowerLabel = document.getElementById(
+        "football-power-label",
+      );
+      const footballPowerFill = document.getElementById("football-power-fill");
+      const footballReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      let bikerLane = 1;
+      let bikerStep = 0;
+      let bikerLives = 3;
+      const bikerHazardLanes = [1, 0, 2, 1, 2, 0, 1, 0];
+      const universeWorlds = {
+        gaming: {
+          elementId: "gaming-world",
+          label: "GAMING WORLD",
+        },
+        football: {
+          elementId: "football-world",
+          label: "FOOTBALL WORLD",
+        },
+        biker: {
+          elementId: "biker-world",
+          label: "BIKER WORLD",
+        },
+      };
+      const heartInvadersTarget = 10;
+      const heartInvadersDuration = 10;
+      const heartInvadersArea = document.getElementById("heart-invaders-arena");
+      const heartInvadersHint = document.getElementById("heart-invaders-hint");
+      const heartInvadersScoreText = document.getElementById(
+        "heart-invaders-score",
+      );
+      const heartInvadersTimeText = document.getElementById(
+        "heart-invaders-time",
+      );
+      const heartInvadersCountText = document.getElementById(
+        "heart-invaders-count",
+      );
+      const heartInvadersStatus = document.getElementById(
+        "heart-invaders-status",
+      );
+      const heartInvadersStartButton = document.getElementById(
+        "heart-invaders-start",
+      );
+      const heartInvadersResult = document.getElementById(
+        "heart-invaders-result",
+      );
+      const heartInvadersResultTitle = document.getElementById(
+        "heart-invaders-result-title",
+      );
+      const heartInvadersResultMessage = document.getElementById(
+        "heart-invaders-result-message",
+      );
+      const heartInvadersAward = document.getElementById(
+        "heart-invaders-award",
+      );
+      const heartInvadersRetryButton = document.getElementById(
+        "heart-invaders-retry",
+      );
+      const heartInvadersContinueButton = document.getElementById(
+        "heart-invaders-continue",
+      );
+      const heartInvadersXpTrack = document.getElementById(
+        "heart-invaders-xp-track",
+      );
+      const heartInvadersXpFill = document.getElementById(
+        "heart-invaders-xp-fill",
+      );
+      const heartInvadersXpCount = document.getElementById(
+        "heart-invaders-xp-count",
+      );
+      const heartInvadersSounds = {};
+      let activeHeartInvadersSound = null;
+      let heartInvadersSoundRequest = 0;
+      let heartInvadersCollected = 0;
+      let heartInvadersScore = 0;
+      let heartInvadersTimeRemaining = heartInvadersDuration;
+      let heartInvadersActive = false;
+      let heartInvadersSpawnInterval = null;
+      let heartInvadersTimerInterval = null;
+      [
+        ["appearance", CONFIG.heartSlideSoundFile],
+        ["collect", CONFIG.balloonPopSoundFile],
+        ["warning", CONFIG.mazeMoveSoundFile],
+        ["victory", CONFIG.applauseSoundFile],
+      ].forEach(([name, source]) => {
+        const sound = new Audio();
+        sound.preload = "auto";
+        sound.src = source
+          .split("/")
+          .map((segment) => encodeURIComponent(segment))
+          .join("/");
+        sound.load();
+        audioController.register(sound, "effects");
+        sound.addEventListener("ended", () => {
+          if (activeHeartInvadersSound === sound) {
+            activeHeartInvadersSound = null;
+          }
+        });
+        heartInvadersSounds[name] = sound;
+      });
+      function stopHeartInvadersSound() {
+        const sound = activeHeartInvadersSound;
+        heartInvadersSoundRequest++;
+        activeHeartInvadersSound = null;
+        if (!sound) return;
+        sound.pause();
+        sound.currentTime = 0;
+      }
+      function playHeartInvadersSound(name) {
+        const sound = heartInvadersSounds[name];
+        if (!sound) {
+          throw new Error(`Unknown Heart Invaders sound: ${name}`);
+        }
+        stopHeartInvadersSound();
+        const request = heartInvadersSoundRequest;
+        activeHeartInvadersSound = sound;
+        audioController.restart(sound, 0).catch((error) => {
+          if (
+            error.name === "AbortError" &&
+            heartInvadersSoundRequest !== request
+          ) {
+            return;
+          }
+          if (activeHeartInvadersSound === sound) {
+            activeHeartInvadersSound = null;
+          }
+          console.warn(`Could not play the Heart Invaders ${name} sound.`, error);
+        });
+      }
+      function stopHeartInvadersGame() {
+        heartInvadersActive = false;
+        window.clearInterval(heartInvadersSpawnInterval);
+        window.clearInterval(heartInvadersTimerInterval);
+        heartInvadersSpawnInterval = null;
+        heartInvadersTimerInterval = null;
+        stopHeartInvadersSound();
+      }
+      function updateHeartInvadersReadout() {
+        heartInvadersScoreText.textContent = String(heartInvadersScore);
+        heartInvadersCountText.textContent =
+          `${heartInvadersCollected} / ${heartInvadersTarget}`;
+        heartInvadersTimeText.textContent = `${heartInvadersTimeRemaining}s`;
+        heartInvadersTimeText.setAttribute(
+          "aria-label",
+          `${heartInvadersTimeRemaining} seconds remaining`,
+        );
+      }
+      function spawnHeartInvader() {
+        if (
+          !heartInvadersActive ||
+          heartInvadersArea.querySelectorAll(".heart-invader").length >= 3
+        ) {
+          return;
+        }
+        const colorRoll = Math.random();
+        const color =
+          colorRoll < 0.2
+            ? "broken"
+            : colorRoll < 0.6
+              ? "pink"
+              : "purple";
+        const heart = document.createElement("button");
+        const heartSize = 52;
+        const padding = 10;
+        const maxLeft = Math.max(
+          0,
+          heartInvadersArea.clientWidth - heartSize - padding * 2,
+        );
+        const maxTop = Math.max(
+          0,
+          heartInvadersArea.clientHeight - heartSize - padding * 2,
+        );
+        const existingHearts = Array.from(
+          heartInvadersArea.querySelectorAll(".heart-invader"),
+        );
+        const spacing = 12;
+        const columns = Math.max(
+          1,
+          Math.floor((maxLeft + spacing) / (heartSize + spacing)) + 1,
+        );
+        const rows = Math.max(
+          1,
+          Math.floor((maxTop + spacing) / (heartSize + spacing)) + 1,
+        );
+        const openSlots = [];
+        for (let row = 0; row < rows; row++) {
+          for (let column = 0; column < columns; column++) {
+            const slot = {
+              left: padding + column * (heartSize + spacing),
+              top: padding + row * (heartSize + spacing),
+            };
+            const overlaps = existingHearts.some((existing) => {
+              return (
+                Math.abs(slot.left - parseFloat(existing.style.left)) <
+                  heartSize + spacing &&
+                Math.abs(slot.top - parseFloat(existing.style.top)) <
+                  heartSize + spacing
+              );
+            });
+            if (!overlaps) openSlots.push(slot);
+          }
+        }
+        if (openSlots.length === 0) return;
+        const { left, top } =
+          openSlots[Math.floor(Math.random() * openSlots.length)];
+        heart.type = "button";
+        heart.className = `heart-invader ${color}`;
+        heart.textContent =
+          color === "broken" ? "💔" : color === "pink" ? "💗" : "💜";
+        heart.setAttribute(
+          "aria-label",
+          color === "broken"
+            ? "Avoid broken heart; tapping it subtracts 10 points"
+            : `Collect ${color} heart for 10 points`,
+        );
+        heart.style.left = `${left}px`;
+        heart.style.top = `${top}px`;
+        heart.addEventListener("click", () => {
+          if (!heartInvadersActive || !heart.isConnected) return;
+          heart.remove();
+          if (color === "broken") {
+            heartInvadersScore -= 10;
+            updateHeartInvadersReadout();
+            heartInvadersStatus.textContent =
+              "Broken heart! -10 points. Avoid them to protect your score.";
+            playHeartInvadersSound("warning");
+            return;
+          }
+          heartInvadersCollected++;
+          heartInvadersScore += 10;
+          updateHeartInvadersReadout();
+          playHeartInvadersSound("collect");
+          if (heartInvadersCollected === heartInvadersTarget) {
+            finishHeartInvaders("victory");
+          }
+        });
+        heartInvadersArea.append(heart);
+        playHeartInvadersSound("appearance");
+        window.setTimeout(
+          () => heart.remove(),
+          color === "broken" ? 2500 : 5000,
+        );
+      }
+      function finishHeartInvaders(outcome) {
+        if (!heartInvadersActive) return;
+        stopHeartInvadersGame();
+        heartInvadersArea
+          .querySelectorAll(".heart-invader")
+          .forEach((heart) => heart.remove());
+        heartInvadersHint.classList.remove("hidden");
+        if (outcome === "victory") {
+          heartInvadersHint.textContent =
+            "All 10 hearts collected! Love Legend status unlocked.";
+          heartInvadersResultTitle.textContent = "MISSION COMPLETE!";
+          heartInvadersResultMessage.textContent =
+            "ACHIEVEMENT UNLOCKED! 🏆 LOVE LEGEND. You collected all the hearts, birthday boy. But there's one heart you'll always have. Mine. ❤️";
+          heartInvadersAward.classList.remove("hidden");
+          heartInvadersRetryButton.classList.add("hidden");
+          heartInvadersContinueButton.classList.remove("hidden");
+          heartInvadersXpFill.style.width = "100%";
+          heartInvadersXpTrack.setAttribute("aria-valuenow", "100");
+          heartInvadersXpCount.textContent = "100 / 100 XP";
+          heartInvadersStatus.textContent =
+            "Mission complete! Your 100 Birthday XP has been awarded.";
+          heartInvadersStartButton.textContent = "Play Again";
+          playHeartInvadersSound("victory");
+        } else {
+          heartInvadersHint.textContent =
+            "Time's up! Start another round and try for all 10 hearts.";
+          heartInvadersResultTitle.textContent = "TIME'S UP!";
+          heartInvadersResultMessage.textContent =
+            `You collected ${heartInvadersCollected} / ${heartInvadersTarget} hearts. Try again to unlock the Love Legend achievement!`;
+          heartInvadersAward.classList.add("hidden");
+          heartInvadersRetryButton.classList.remove("hidden");
+          heartInvadersContinueButton.classList.add("hidden");
+          heartInvadersStatus.textContent =
+            "The mission ended before all hearts were collected. Give it another try!";
+          heartInvadersStartButton.textContent = "Restart Game";
+        }
+        heartInvadersResult.classList.remove("hidden");
+      }
+      function startHeartInvaders() {
+        stopHeartInvadersGame();
+        heartInvadersCollected = 0;
+        heartInvadersScore = 0;
+        heartInvadersTimeRemaining = heartInvadersDuration;
+        heartInvadersArea
+          .querySelectorAll(".heart-invader")
+          .forEach((heart) => heart.remove());
+        heartInvadersHint.classList.add("hidden");
+        heartInvadersResult.classList.add("hidden");
+        heartInvadersAward.classList.add("hidden");
+        heartInvadersRetryButton.classList.add("hidden");
+        heartInvadersContinueButton.classList.add("hidden");
+        heartInvadersXpFill.style.width = "0%";
+        heartInvadersXpTrack.setAttribute("aria-valuenow", "0");
+        heartInvadersXpCount.textContent = "0 / 100 XP";
+        heartInvadersStatus.textContent =
+          "Go, Player 1! Tap every heart for 10 points.";
+        heartInvadersStartButton.textContent = "Restart Game";
+        updateHeartInvadersReadout();
+        heartInvadersActive = true;
+        spawnHeartInvader();
+        heartInvadersSpawnInterval = window.setInterval(
+          spawnHeartInvader,
+          600,
+        );
+        heartInvadersTimerInterval = window.setInterval(() => {
+          heartInvadersTimeRemaining--;
+          updateHeartInvadersReadout();
+          if (
+            heartInvadersTimeRemaining === 5 ||
+            heartInvadersTimeRemaining === 3
+          ) {
+            playHeartInvadersSound("warning");
+          }
+          if (heartInvadersTimeRemaining <= 0) {
+            finishHeartInvaders("timeout");
+          }
+        }, 1000);
+      }
+      document
+        .getElementById("open-birthday-universes")
+        .addEventListener("click", () => {
+          showUniverseSelection();
+          showView("universe-view");
+        });
+      document
+        .getElementById("universe-back-to-invitation")
+        .addEventListener("click", () => showView("ready-view"));
+      function showUniverseSelection() {
+        stopHeartInvadersGame();
+        activeBirthdayUniverse = null;
+        universePlaySpace.classList.add("hidden");
+        universeWorldScreen.classList.add("hidden");
+        universeSharedEnding.classList.add("hidden");
+        universeSelection.classList.remove("hidden");
+        requestAnimationFrame(() => {
+          document
+            .querySelector("[data-universe-choice]")
+            .focus({ preventScroll: true });
+        });
+      }
+      function resetGamerGame() {
+        stopHeartInvadersGame();
+        heartInvadersCollected = 0;
+        heartInvadersScore = 0;
+        heartInvadersTimeRemaining = heartInvadersDuration;
+        heartInvadersArea
+          .querySelectorAll(".heart-invader")
+          .forEach((heart) => heart.remove());
+        heartInvadersHint.classList.remove("hidden");
+        heartInvadersHint.textContent =
+          "Press Start Game to begin your 10-second mission.";
+        heartInvadersResult.classList.add("hidden");
+        heartInvadersResultTitle.textContent = "";
+        heartInvadersResultMessage.textContent = "";
+        heartInvadersAward.classList.add("hidden");
+        heartInvadersRetryButton.classList.add("hidden");
+        heartInvadersContinueButton.classList.add("hidden");
+        heartInvadersXpFill.style.width = "0%";
+        heartInvadersXpTrack.setAttribute("aria-valuenow", "0");
+        heartInvadersXpCount.textContent = "0 / 100 XP";
+        heartInvadersStartButton.textContent = "Start Game";
+        heartInvadersStatus.textContent =
+          "Ready, Player 1? Collect 10 hearts to win!";
+        updateHeartInvadersReadout();
+      }
+      function resetFootballGame() {
+        stopFootballGoalCheer();
+        window.clearTimeout(footballCompletionTimeout);
+        footballCompletionTimeout = 0;
+        if (footballAnimationFrame) {
+          window.cancelAnimationFrame(footballAnimationFrame);
+          footballAnimationFrame = 0;
+        }
+        if (
+          footballPointerDrag &&
+          footballBall.hasPointerCapture(footballPointerDrag.pointerId)
+        ) {
+          footballBall.releasePointerCapture(footballPointerDrag.pointerId);
+        }
+        footballPointerDrag = null;
+        footballShotInProgress = false;
+        footballKeyboardAimRatio = 0;
+        footballKeyboardPower = 0.75;
+        footballGoals = 0;
+        footballShots = 0;
+        footballBall.disabled = false;
+        footballBall.removeAttribute("style");
+        footballBall.classList.remove(
+          "is-dragging",
+          "is-flight",
+          "is-returning",
+        );
+        footballGoal.classList.remove("goal-scored");
+        footballTrajectoryPath.setAttribute("d", "");
+        footballPowerIndicator.classList.add("hidden");
+        footballPowerFill.style.width = "0%";
+        footballPowerLabel.textContent = "POWER 0%";
+        footballPowerIndicator.setAttribute("aria-valuenow", "0");
+        document.getElementById("football-status").textContent =
+          "Five shots. Drag the ball backward to aim and shoot!";
+        footballKeeper.removeAttribute("data-dive");
+        updateFootballScore();
+      }
+      function updateBikerDisplay() {
+        const lanePositions = ["16.67%", "50%", "83.33%"];
+        document.getElementById("biker-rider").style.left =
+          lanePositions[bikerLane];
+        document.getElementById("biker-road-hazard").style.left =
+          lanePositions[bikerHazardLanes[bikerStep]];
+        document.getElementById("biker-road-hazard").style.top =
+          `${35 + (bikerStep % 3) * 12}px`;
+        document.getElementById("biker-readout").textContent =
+          `Distance: ${bikerStep} / ${bikerHazardLanes.length} km · Lives: ${bikerLives}`;
+      }
+      function resetBikerGame() {
+        bikerLane = 1;
+        bikerStep = 0;
+        bikerLives = 3;
+        document.getElementById("biker-status").textContent =
+          "Change lanes to avoid the hazard, then ride ahead.";
+        updateBikerDisplay();
+      }
+      function beginBirthdayUniverse(theme) {
+        const definition = universeWorlds[theme];
+        if (!definition) {
+          throw new Error(`Unknown birthday universe: ${theme}`);
+        }
+        activeBirthdayUniverse = theme;
+        universeSelection.classList.add("hidden");
+        universePlaySpace.classList.remove("hidden");
+        universeSharedEnding.classList.add("hidden");
+        universeWorldScreen.classList.remove("hidden");
+        universeWorldScreen.dataset.theme = theme;
+        document.getElementById("universe-world-label").textContent =
+          definition.label;
+        Object.values(universeWorlds).forEach((world) => {
+          document.getElementById(world.elementId).classList.add("hidden");
+        });
+        document.getElementById(definition.elementId).classList.remove("hidden");
+        if (theme === "gaming") resetGamerGame();
+        if (theme === "football") resetFootballGame();
+        if (theme === "biker") resetBikerGame();
+        document
+          .querySelector("[data-universe-home]")
+          .focus({ preventScroll: true });
+      }
+      document
+        .querySelectorAll("[data-universe-choice]")
+        .forEach((button) => {
+          button.addEventListener("click", () => {
+            beginBirthdayUniverse(button.dataset.universeChoice);
+          });
+        });
+      document
+        .querySelectorAll("[data-universe-home]")
+        .forEach((button) => {
+          button.addEventListener("click", showUniverseSelection);
+        });
+      document
+        .getElementById("universe-explore-again")
+        .addEventListener("click", showUniverseSelection);
+      document
+        .getElementById("universe-back-to-romantic-world")
+        .addEventListener("click", () => showView("home-view"));
+      heartInvadersStartButton.addEventListener("click", startHeartInvaders);
+      heartInvadersRetryButton.addEventListener("click", startHeartInvaders);
+      heartInvadersContinueButton.addEventListener("click", () => {
+        if (
+          activeBirthdayUniverse === "gaming" &&
+          heartInvadersCollected === heartInvadersTarget &&
+          !heartInvadersActive
+        ) {
+          completeBirthdayUniverse("gaming");
+        }
+      });
+      function clampFootball(value, min, max) {
+        return Math.max(min, Math.min(max, value));
+      }
+      function updateFootballScore() {
+        document.getElementById("football-score").textContent =
+          `Goals: ${footballGoals} · Shots: ${footballShots} / 5`;
+      }
+      function getFootballGeometry() {
+        const stadiumRect = footballStadium.getBoundingClientRect();
+        const goalRect = footballGoal.getBoundingClientRect();
+        const ballRect = footballBall.getBoundingClientRect();
+        return {
+          width: stadiumRect.width,
+          height: stadiumRect.height,
+          stadiumLeft: stadiumRect.left,
+          stadiumTop: stadiumRect.top,
+          ballRadius: ballRect.width / 2,
+          startX: ballRect.left + ballRect.width / 2 - stadiumRect.left,
+          startY: ballRect.top + ballRect.height / 2 - stadiumRect.top,
+          goalLeft: goalRect.left - stadiumRect.left,
+          goalTop: goalRect.top - stadiumRect.top,
+          goalWidth: goalRect.width,
+          goalHeight: goalRect.height,
+          goalLineY:
+            goalRect.top -
+            stadiumRect.top +
+            goalRect.height -
+            ballRect.height / 2 -
+            4,
+        };
+      }
+      function getFootballAim(geometry, deltaX) {
+        const maxAimDrag = geometry.width * 0.18;
+        const aimRatio = clampFootball(
+          (deltaX / maxAimDrag) * 1.3,
+          -1.3,
+          1.3,
+        );
+        const usableHalfWidth = Math.max(
+          12,
+          geometry.goalWidth / 2 - geometry.ballRadius - 5,
+        );
+        return {
+          aimRatio,
+          targetX:
+            geometry.goalLeft + geometry.goalWidth / 2 + aimRatio * usableHalfWidth,
+        };
+      }
+      function getFootballDirection(targetX, geometry) {
+        const centerX = geometry.goalLeft + geometry.goalWidth / 2;
+        const sideThreshold = geometry.goalWidth * 0.17;
+        if (targetX < centerX - sideThreshold) return "left";
+        if (targetX > centerX + sideThreshold) return "right";
+        return "center";
+      }
+      function setFootballBallPosition(x, y, rotation = 0, scale = 1) {
+        footballBall.style.left = `${x}px`;
+        footballBall.style.top = `${y}px`;
+        footballBall.style.bottom = "auto";
+        footballBall.style.transform =
+          `translate(-50%, -50%) rotate(${rotation}deg) scale(${scale})`;
+      }
+      function getFootballCurve(startX, startY, targetX, targetY, power, aimRatio) {
+        return {
+          controlX:
+            (startX + targetX) / 2 + clampFootball(aimRatio * 15, -20, 20),
+          controlY: (startY + targetY) / 2 - 20 * power,
+        };
+      }
+      function drawFootballTrajectory(startX, startY, targetX, targetY, power, aimRatio) {
+        const geometry = getFootballGeometry();
+        footballTrajectory.setAttribute(
+          "viewBox",
+          `0 0 ${geometry.width} ${geometry.height}`,
+        );
+        const { controlX, controlY } = getFootballCurve(
+          startX,
+          startY,
+          targetX,
+          targetY,
+          power,
+          aimRatio,
+        );
+        footballTrajectoryPath.setAttribute(
+          "d",
+          `M ${startX} ${startY} Q ${controlX} ${controlY} ${targetX} ${targetY}`,
+        );
+      }
+      function updateFootballDrag(event) {
+        const drag = footballPointerDrag;
+        if (!drag || drag.pointerId !== event.pointerId) return;
+        event.preventDefault();
+        const geometry = getFootballGeometry();
+        const maxAimDrag = geometry.width * 0.18;
+        const dx = clampFootball(
+          event.clientX - drag.startClientX,
+          -maxAimDrag,
+          maxAimDrag,
+        );
+        const dy = clampFootball(
+          event.clientY - drag.startClientY,
+          0,
+          drag.maxBackwardDistance,
+        );
+        drag.deltaX = dx;
+        drag.backwardDistance = dy;
+        const x = clampFootball(
+          drag.startX + dx,
+          geometry.ballRadius,
+          geometry.width - geometry.ballRadius,
+        );
+        const y = clampFootball(
+          drag.startY + dy,
+          geometry.ballRadius,
+          geometry.height - geometry.ballRadius,
+        );
+        setFootballBallPosition(x, y);
+        const power = dy / drag.maxBackwardDistance;
+        const aim = getFootballAim(geometry, dx);
+        drawFootballTrajectory(
+          x,
+          y,
+          aim.targetX,
+          geometry.goalLineY,
+          power,
+          aim.aimRatio,
+        );
+        const powerPercent = Math.round(power * 100);
+        footballPowerLabel.textContent = `POWER ${powerPercent}%`;
+        footballPowerFill.style.width = `${powerPercent}%`;
+        footballPowerIndicator.setAttribute(
+          "aria-valuenow",
+          String(powerPercent),
+        );
+      }
+      function animateFootballBallReturn(fromX, fromY, geometry, onComplete) {
+        footballBall.classList.remove("is-flight");
+        footballBall.classList.add("is-returning");
+        const startedAt = performance.now();
+        const duration = footballReducedMotion ? 70 : 300;
+        const startX = geometry.startX;
+        const startY = geometry.startY;
+        function returnFrame(now) {
+          const progress = clampFootball((now - startedAt) / duration, 0, 1);
+          const eased = 1 - (1 - progress) ** 3;
+          setFootballBallPosition(
+            fromX + (startX - fromX) * eased,
+            fromY + (startY - fromY) * eased,
+            720 * (1 - eased),
+            0.65 + 0.35 * eased,
+          );
+          if (progress < 1) {
+            footballAnimationFrame = window.requestAnimationFrame(returnFrame);
+            return;
+          }
+          footballAnimationFrame = 0;
+          footballBall.removeAttribute("style");
+          footballBall.classList.remove("is-returning");
+          onComplete();
+        }
+        footballAnimationFrame = window.requestAnimationFrame(returnFrame);
+      }
+      function animateFootballShot(geometry, shot) {
+        footballBall.classList.add("is-flight");
+        const startedAt = performance.now();
+        const duration = footballReducedMotion ? 90 : 720 - shot.power * 260;
+        function flightFrame(now) {
+          const progress = clampFootball((now - startedAt) / duration, 0, 1);
+          const inverse = 1 - progress;
+          const x =
+            inverse * inverse * shot.startX +
+            2 * inverse * progress * shot.controlX +
+            progress * progress * shot.endX;
+          const y =
+            inverse * inverse * shot.startY +
+            2 * inverse * progress * shot.controlY +
+            progress * progress * shot.endY;
+          setFootballBallPosition(
+            x,
+            y,
+            progress * 720,
+            1 - progress * 0.35,
+          );
+          if (progress < 1) {
+            footballAnimationFrame = window.requestAnimationFrame(flightFrame);
+            return;
+          }
+          footballAnimationFrame = 0;
+          finishFootballShot(geometry, shot, x, y);
+        }
+        footballAnimationFrame = window.requestAnimationFrame(flightFrame);
+      }
+      function finishFootballShot(geometry, shot, endX, endY) {
+        if (shot.outcome === "goal") {
+          footballGoals++;
+          playFootballGoalCheer();
+          footballGoal.classList.remove("goal-scored");
+          void footballGoal.offsetWidth;
+          footballGoal.classList.add("goal-scored");
+          window.setTimeout(
+            () => footballGoal.classList.remove("goal-scored"),
+            650,
+          );
+          document.getElementById("football-status").textContent =
+            `GOAL! What a birthday strike! Power ${Math.round(shot.power * 100)}%. Shot ${footballShots} of 5.`;
+        } else if (shot.outcome === "save") {
+          document.getElementById("football-status").textContent =
+            `SAVE! The keeper read your ${shot.direction} shot. Shot ${footballShots} of 5.`;
+        } else {
+          document.getElementById("football-status").textContent =
+            `MISS! ${shot.missReason} Shot ${footballShots} of 5.`;
+        }
+        updateFootballScore();
+        footballPowerIndicator.classList.add("hidden");
+        footballTrajectoryPath.setAttribute("d", "");
+        animateFootballBallReturn(endX, endY, geometry, () => {
+          footballKeeper.removeAttribute("data-dive");
+          footballShotInProgress = false;
+          if (footballShots === 5) {
+            footballBall.disabled = true;
+            footballCompletionTimeout = window.setTimeout(() => {
+              if (activeBirthdayUniverse === "football") {
+                completeBirthdayUniverse("football");
+              }
+            }, 1000);
+          } else {
+            footballBall.disabled = false;
+            document.getElementById("football-status").textContent +=
+              " Drag again for the next shot.";
+          }
+        });
+      }
+      function launchFootballShot(drag) {
+        if (
+          activeBirthdayUniverse !== "football" ||
+          footballShotInProgress ||
+          footballShots >= 5
+        ) {
+          return;
+        }
+        const geometry = getFootballGeometry();
+        const power = clampFootball(
+          drag.backwardDistance / drag.maxBackwardDistance,
+          0,
+          1,
+        );
+        const startX = clampFootball(
+          drag.startX + drag.deltaX,
+          geometry.ballRadius,
+          geometry.width - geometry.ballRadius,
+        );
+        const startY = clampFootball(
+          drag.startY + drag.backwardDistance,
+          geometry.ballRadius,
+          geometry.height - geometry.ballRadius,
+        );
+        const aim = getFootballAim(geometry, drag.deltaX);
+        const direction = getFootballDirection(aim.targetX, geometry);
+        const travelFactor = 0.78 + power * 0.34;
+        const projectedEndY =
+          startY + (geometry.goalLineY - startY) * travelFactor;
+        const crossesGoalLine = projectedEndY <= geometry.goalLineY;
+        const curve = getFootballCurve(
+          startX,
+          startY,
+          aim.targetX,
+          projectedEndY,
+          power,
+          aim.aimRatio,
+        );
+        let crossingX = aim.targetX;
+        let endX = aim.targetX;
+        if (crossesGoalLine) {
+          let low = 0;
+          let high = 1;
+          for (let step = 0; step < 24; step++) {
+            const middle = (low + high) / 2;
+            const inverse = 1 - middle;
+            const y =
+              inverse * inverse * startY +
+              2 * inverse * middle * curve.controlY +
+              middle * middle * projectedEndY;
+            if (y > geometry.goalLineY) low = middle;
+            else high = middle;
+          }
+          const crossingT = high;
+          const inverse = 1 - crossingT;
+          const denominator = crossingT * crossingT;
+          endX =
+            (aim.targetX -
+              inverse * inverse * startX -
+              2 * inverse * crossingT * curve.controlX) /
+            denominator;
+          crossingX = aim.targetX;
+        }
+        const innerLeft =
+          geometry.goalLeft + 4 + geometry.ballRadius;
+        const innerRight =
+          geometry.goalLeft +
+          geometry.goalWidth -
+          4 -
+          geometry.ballRadius;
+        const insideFrame =
+          crossesGoalLine &&
+          crossingX >= innerLeft &&
+          crossingX <= innerRight &&
+          geometry.goalLineY >=
+            geometry.goalTop + geometry.ballRadius &&
+          geometry.goalLineY <=
+            geometry.goalTop +
+              geometry.goalHeight -
+              geometry.ballRadius;
+        const keeperDirection = direction;
+        const saved = insideFrame && Math.random() < 1 / 3;
+        const outcome = !insideFrame ? "miss" : saved ? "save" : "goal";
+        const missReason = !crossesGoalLine
+          ? "The shot was short of the goal line."
+          : "The ball went outside the goal frame.";
+        const shotEndY = saved ? geometry.goalLineY : projectedEndY;
+        let shotEndX = crossesGoalLine ? endX : aim.targetX;
+        let shotControlX = curve.controlX;
+        let shotControlY = curve.controlY;
+        if (saved) {
+          shotEndX = aim.targetX;
+          const saveCurve = getFootballCurve(
+            startX,
+            startY,
+            shotEndX,
+            shotEndY,
+            power,
+            aim.aimRatio,
+          );
+          shotControlX = saveCurve.controlX;
+          shotControlY = saveCurve.controlY;
+        }
+        footballShotInProgress = true;
+        footballBall.disabled = true;
+        footballShots++;
+        footballKeeper.dataset.dive = keeperDirection;
+        document.getElementById("football-status").textContent =
+          `Shot in flight · ${Math.round(power * 100)}% power · The keeper dives ${keeperDirection}!`;
+        updateFootballScore();
+        animateFootballShot(geometry, {
+          startX,
+          startY,
+          endX: shotEndX,
+          endY: shotEndY,
+          controlX: shotControlX,
+          controlY: shotControlY,
+          power,
+          aimRatio: aim.aimRatio,
+          direction,
+          outcome,
+          missReason,
+        });
+      }
+      function handleFootballPointerDown(event) {
+        if (
+          activeBirthdayUniverse !== "football" ||
+          footballShotInProgress ||
+          footballShots >= 5 ||
+          footballPointerDrag ||
+          !event.isPrimary ||
+          (event.pointerType === "mouse" && event.button !== 0)
+        ) {
+          return;
+        }
+        event.preventDefault();
+        const geometry = getFootballGeometry();
+        const maxBackwardDistance = Math.max(
+          12,
+          Math.min(
+            60,
+            geometry.height -
+              geometry.startY -
+              geometry.ballRadius -
+              4,
+          ),
+        );
+        footballPointerDrag = {
+          pointerId: event.pointerId,
+          startClientX: event.clientX,
+          startClientY: event.clientY,
+          startX: geometry.startX,
+          startY: geometry.startY,
+          deltaX: 0,
+          backwardDistance: 0,
+          maxBackwardDistance,
+        };
+        footballBall.classList.add("is-dragging");
+        footballPowerIndicator.classList.remove("hidden");
+        footballBall.setPointerCapture(event.pointerId);
+        updateFootballDrag(event);
+      }
+      function handleFootballPointerUp(event) {
+        if (
+          !footballPointerDrag ||
+          footballPointerDrag.pointerId !== event.pointerId
+        ) {
+          return;
+        }
+        updateFootballDrag(event);
+        const drag = footballPointerDrag;
+        footballPointerDrag = null;
+        footballBall.classList.remove("is-dragging");
+        footballTrajectoryPath.setAttribute("d", "");
+        if (drag.backwardDistance < 10) {
+          footballPowerIndicator.classList.add("hidden");
+          const geometry = getFootballGeometry();
+          const ballRect = footballBall.getBoundingClientRect();
+          animateFootballBallReturn(
+            ballRect.left + ballRect.width / 2 - geometry.stadiumLeft,
+            ballRect.top + ballRect.height / 2 - geometry.stadiumTop,
+            geometry,
+            () => {
+              document.getElementById("football-status").textContent =
+                "Pull the ball backward a little farther to take your shot.";
+            },
+          );
+          return;
+        }
+        launchFootballShot(drag);
+      }
+      function handleFootballPointerCancel(event) {
+        if (
+          !footballPointerDrag ||
+          footballPointerDrag.pointerId !== event.pointerId
+        ) {
+          return;
+        }
+        footballPointerDrag = null;
+        footballBall.classList.remove("is-dragging");
+        footballPowerIndicator.classList.add("hidden");
+        footballTrajectoryPath.setAttribute("d", "");
+        const geometry = getFootballGeometry();
+        const ballRect = footballBall.getBoundingClientRect();
+        animateFootballBallReturn(
+          ballRect.left + ballRect.width / 2 - geometry.stadiumLeft,
+          ballRect.top + ballRect.height / 2 - geometry.stadiumTop,
+          geometry,
+          () => {},
+        );
+      }
+      function handleFootballKeyboard(event) {
+        if (
+          activeBirthdayUniverse !== "football" ||
+          footballShotInProgress ||
+          footballShots >= 5
+        ) {
+          return;
+        }
+        if (event.key === "ArrowLeft") {
+          footballKeyboardAimRatio = clampFootball(
+            footballKeyboardAimRatio - 0.15,
+            -1.3,
+            1.3,
+          );
+        } else if (event.key === "ArrowRight") {
+          footballKeyboardAimRatio = clampFootball(
+            footballKeyboardAimRatio + 0.15,
+            -1.3,
+            1.3,
+          );
+        } else if (event.key === "ArrowDown") {
+          footballKeyboardPower = clampFootball(
+            footballKeyboardPower + 0.1,
+            0.1,
+            1,
+          );
+        } else if (event.key === "ArrowUp") {
+          footballKeyboardPower = clampFootball(
+            footballKeyboardPower - 0.1,
+            0.1,
+            1,
+          );
+        } else if (event.key === "Enter" || event.code === "Space") {
+          event.preventDefault();
+          const geometry = getFootballGeometry();
+          const maxBackwardDistance = Math.max(
+            12,
+            Math.min(
+              60,
+              geometry.height -
+                geometry.startY -
+                geometry.ballRadius -
+                4,
+            ),
+          );
+          launchFootballShot({
+            startX: geometry.startX,
+            startY: geometry.startY,
+            deltaX:
+              (footballKeyboardAimRatio / 1.3) *
+              geometry.width *
+              0.18,
+            backwardDistance: footballKeyboardPower * maxBackwardDistance,
+            maxBackwardDistance,
+          });
+          return;
+        } else {
+          return;
+        }
+        event.preventDefault();
+        const geometry = getFootballGeometry();
+        const deltaX =
+          (footballKeyboardAimRatio / 1.3) * geometry.width * 0.18;
+        const power = footballKeyboardPower;
+        const aim = getFootballAim(geometry, deltaX);
+        footballTrajectory.setAttribute(
+          "viewBox",
+          `0 0 ${geometry.width} ${geometry.height}`,
+        );
+        drawFootballTrajectory(
+          geometry.startX,
+          geometry.startY,
+          aim.targetX,
+          geometry.goalLineY,
+          power,
+          aim.aimRatio,
+        );
+        const powerPercent = Math.round(power * 100);
+        footballPowerIndicator.classList.remove("hidden");
+        footballPowerLabel.textContent = `POWER ${powerPercent}%`;
+        footballPowerFill.style.width = `${powerPercent}%`;
+        footballPowerIndicator.setAttribute(
+          "aria-valuenow",
+          String(powerPercent),
+        );
+      }
+      footballBall.addEventListener("pointerdown", handleFootballPointerDown);
+      footballBall.addEventListener("keydown", handleFootballKeyboard);
+      window.addEventListener("pointermove", updateFootballDrag, {
+        passive: false,
+      });
+      window.addEventListener("pointerup", handleFootballPointerUp);
+      window.addEventListener("pointercancel", handleFootballPointerCancel);
+      footballBall.addEventListener("lostpointercapture", (event) => {
+        if (
+          footballPointerDrag &&
+          footballPointerDrag.pointerId === event.pointerId
+        ) {
+          handleFootballPointerCancel(event);
+        }
+      });
+      function moveBiker(direction) {
+        if (activeBirthdayUniverse !== "biker") return;
+        bikerLane = Math.max(0, Math.min(2, bikerLane + direction));
+        updateBikerDisplay();
+      }
+      function advanceBiker() {
+        if (activeBirthdayUniverse !== "biker") return;
+        if (bikerLane === bikerHazardLanes[bikerStep]) {
+          bikerLives--;
+          if (bikerLives === 0) {
+            resetBikerGame();
+            document.getElementById("biker-status").textContent =
+              "Quick pit stop! Your ride is reset—switch lanes and try again.";
+            return;
+          }
+          document.getElementById("biker-status").textContent =
+            `Bump! You have ${bikerLives} ${bikerLives === 1 ? "life" : "lives"} left. Switch lanes for the next stretch.`;
+        } else {
+          document.getElementById("biker-status").textContent =
+            "Nice move! The road is clear—keep riding.";
+        }
+        bikerStep++;
+        if (bikerStep === bikerHazardLanes.length) {
+          completeBirthdayUniverse("biker");
+          return;
+        }
+        updateBikerDisplay();
+      }
+      document
+        .getElementById("biker-left-button")
+        .addEventListener("click", () => moveBiker(-1));
+      document
+        .getElementById("biker-right-button")
+        .addEventListener("click", () => moveBiker(1));
+      document
+        .getElementById("biker-ride-button")
+        .addEventListener("click", advanceBiker);
+      document.addEventListener("keydown", (event) => {
+        if (
+          activeBirthdayUniverse !== "biker" ||
+          universeWorldScreen.classList.contains("hidden")
+        ) {
+          return;
+        }
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          moveBiker(-1);
+        } else if (event.key === "ArrowRight") {
+          event.preventDefault();
+          moveBiker(1);
+        } else if (
+          event.code === "Space" &&
+          !event.target.closest("button, input, select, textarea")
+        ) {
+          event.preventDefault();
+          advanceBiker();
+        }
+      });
+      function completeBirthdayUniverse(theme) {
+        const results = {
+          gaming: {
+            icon: "🏆",
+            award: "100 BIRTHDAY XP · LOVE LEGEND",
+            title: "HEART INVADERS COMPLETE!",
+            message:
+              `Ten hearts collected, a final score of ${heartInvadersScore} points, and 100 Birthday XP earned. There's one heart you'll always have. Mine. ❤️`,
+          },
+          football: {
+            icon: "🏆",
+            award: `BIRTHDAY MATCH · ${footballGoals} GOALS`,
+            title: "THE BIRTHDAY CHAMPION!",
+            message:
+              footballGoals === 0
+                ? "Awww.. it can be 0 but you are always my hero.. dont you worry babes 💋"
+                : footballGoals >= 3
+                  ? `A birthday hat-trick and then some! You scored ${footballGoals} goals and owned the stadium, Subho!`
+                  : `What a match, Subho! You scored ${footballGoals} goals and you're still my birthday champion, always.`,
+          },
+          biker: {
+            icon: "🏁",
+            award: `DESTINATION REACHED · ${bikerHazardLanes.length} KM`,
+            title: "RIDE COMPLETE, SUBHO!",
+            message:
+              "You made it all the way to your birthday destination. Every adventure is better with you along for the ride!",
+          },
+        };
+        const result = results[theme];
+        if (!result) {
+          throw new Error(`Cannot complete unknown birthday universe: ${theme}`);
+        }
+        activeBirthdayUniverse = theme;
+        universeWorldScreen.classList.add("hidden");
+        universeSharedEnding.dataset.theme = theme;
+        document.getElementById("universe-ending-icon").textContent =
+          result.icon;
+        document.getElementById("universe-award").textContent = result.award;
+        document.getElementById("universe-result-title").textContent =
+          result.title;
+        document.getElementById("universe-result-message").textContent =
+          result.message;
+        universeSharedEnding.classList.remove("hidden");
+        document
+          .getElementById("universe-explore-again")
+          .focus({ preventScroll: true });
+      }
       function playApplause() {
+        stopFootballGoalCheer();
         audioController.restart(applauseSound, 0).catch((error) => {
           console.error("Could not play the applause sound.", error);
           document.getElementById("wish-text").textContent =

@@ -23,6 +23,7 @@ Thank you for understanding. 💗
 - 🎵 **Music & Sound Effects:** Background music, game sounds and audio controls.
 - 💗 **Secret Love Note:** A private romantic message hidden behind a clickable heart.
 - 🎂 **Real-Life Birthday Invitation:** A personalised invitation revealing the next birthday surprise.
+- 🌌 **Choose Your Birthday Universe:** Three optional, playable worlds—gaming, football and biking—with a shared romantic ending. Gamer Boy includes **Heart Invaders**, a 10-second game where pink/purple hearts add points and broken hearts deduct them.
 
 ## 🛠️ Technologies Used
 
@@ -62,6 +63,7 @@ our_birthday_website/
 3. Keep the `assets` folder alongside the HTML files.
 4. Open `happybirthdaymylove.html` in Chrome.
 5. For local development, you can also use the VS Code Live Server extension.
+6. Progress to the real-life invitation and select **LET'S GO!** to enter the Birthday Universe experience. Try each world; the biker game supports on-screen controls or the arrow keys and Space.
 
 ## 🖼️ Personalisation Guide
 
